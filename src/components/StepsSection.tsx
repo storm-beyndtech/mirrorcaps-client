@@ -36,16 +36,16 @@ const StepsSection = () => {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full max-w-4xl h-full relative">
           {/* Horizontal light beam */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent blur-sm"></div>
+          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-brandblue/30 to-transparent blur-sm"></div>
 
           {/* Radial glow in center */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-brandblue/10 blur-3xl"></div>
 
           {/* Light beams expanding outward */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-[1000px] h-[500px] border-2 border-blue-400/5 rounded-full"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] border-2 border-blue-400/10 rounded-full"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] border-2 border-blue-400/15 rounded-full"></div>
+            <div className="w-[1000px] h-[500px] border-2 border-brandblue/5 rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] border-2 border-brandblue/10 rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] border-2 border-brandblue/15 rounded-full"></div>
           </div>
         </div>
       </div>
@@ -62,10 +62,9 @@ const StepsSection = () => {
             {/* Heading */}
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-5xl font-bold text-center mb-20"
+              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-tr from-white via-white to-gray-500 text-transparent bg-clip-text"
             >
-              Start Trading in <span className="text-white">3 Simple</span>{' '}
-              <span className="text-gray-600">Steps</span>
+              Start Trading in 3 Simple Steps
             </motion.h2>
 
             {/* Steps */}
@@ -75,7 +74,7 @@ const StepsSection = () => {
                 variants={itemVariants}
                 className="flex items-center gap-4 md:w-1/4"
               >
-                <div className="text-9xl font-bold text-blue-400">1</div>
+                <div className="text-9xl font-bold text-brandblue">1</div>
                 <div className="h-fit">
                   <h3 className="text-lg font-bold uppercase mb-1">REGISTER</h3>
                   <p className="text-sm text-gray-600">
@@ -86,7 +85,7 @@ const StepsSection = () => {
 
               {/* Arrow */}
               <motion.div variants={itemVariants} className="hidden md:block">
-                <ArrowRight size={32} className="text-blue-500" />
+                <ArrowRight size={32} className="text-brandblue" />
               </motion.div>
 
               {/* Step 2 */}
@@ -94,7 +93,7 @@ const StepsSection = () => {
                 variants={itemVariants}
                 className="flex items-center gap-4 md:w-1/4"
               >
-                <div className="text-9xl font-bold text-blue-400">2</div>
+                <div className="text-9xl font-bold text-brandblue">2</div>
                 <div className="h-fit">
                   <h3 className="text-lg font-bold uppercase mb-1">FUND</h3>
                   <p className="text-sm text-gray-600">
@@ -105,7 +104,7 @@ const StepsSection = () => {
 
               {/* Arrow */}
               <motion.div variants={itemVariants} className="hidden md:block">
-                <ArrowRight size={32} className="text-blue-500" />
+                <ArrowRight size={32} className="text-brandblue" />
               </motion.div>
 
               {/* Step 3 */}
@@ -113,7 +112,7 @@ const StepsSection = () => {
                 variants={itemVariants}
                 className="flex items-center gap-4 md:w-1/4"
               >
-                <div className="text-9xl font-bold text-blue-400">3</div>
+                <div className="text-9xl font-bold text-brandblue">3</div>
                 <div className="h-fit">
                   <h3 className="text-lg font-bold uppercase mb-1">TRADE</h3>
                   <p className="text-sm text-gray-600">
@@ -131,7 +130,7 @@ const StepsSection = () => {
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
-                  className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-12 rounded-md transition-colors shadow-lg shadow-blue-500/30"
+                  className="bg-brandblue hover:bg-cyan-600 text-white font-medium py-3 px-12 rounded-md transition-colors shadow-lg shadow-brandblue/30"
                 >
                   Get Started
                 </motion.button>

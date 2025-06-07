@@ -30,7 +30,7 @@ const MarketCard = ({ market, index }: { index: number; market: Market }) => {
     >
       <img
         src={market.image}
-        className="object-cover mb-4 rounded-full w-18 h-18 mt-[-50px]"
+        className="object-cover mb-4 w-18 h-18 mt-[-50px]"
       />
 
       <div className="mt-auto">

@@ -34,7 +34,7 @@ export default function Balance({
   };
 
   return (
-    <div className="w-96 h-56 rounded-3xl overflow-hidden shadow-xl bgRadial">
+    <div className="w-full max-w-96 h-56 rounded-3xl overflow-hidden shadow-xl bgRadial">
       <div className="h-full w-full p-6 relative">
         {/* Glass-like pattern overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-white/60 opacity-5 z-0"></div>
@@ -66,7 +66,7 @@ export default function Balance({
 
           <div className="flex flex-col">
             <div className="flex items-center gap-1 mb-1">
-              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+              <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
               <span className="text-xs text-gray-400">Interest</span>
             </div>
             <span className="text-sm font-medium text-white">

@@ -72,11 +72,27 @@ const calculateChange = (data: number[]) => {
 const marketData: MarketDataType = {
   'Share CFDs': [
     {
+      name: 'Apple',
+      ticker: 'AAPL',
+      change: '+0.70%',
+      color: '#4ade80',
+      logo: 'https://cdn-icons-png.freepik.com/256/5969/5969047.png?semt=ais_incoming',
+      data: generateChartData(574.35, 4, 1.5),
+    },
+    {
+      name: 'Google',
+      ticker: 'GOOG',
+      change: '-0.37%',
+      color: '#ff4e4e',
+      logo: 'https://cdn-icons-png.freepik.com/256/2965/2965278.png?ga=GA1.1.1595139388.1749145976&semt=ais_incoming',
+      data: generateChartData(204.73, 2, 1.5),
+    },
+    {
       name: 'Meta',
       ticker: 'META',
       change: '+0.37%',
       color: '#4ade80',
-      logo: 'https://logosandtypes.com/wp-content/uploads/2022/03/metaverse.svg',
+      logo: 'https://cdn-icons-png.freepik.com/256/6033/6033716.png?ga=GA1.1.1595139388.1749145976&semt=ais_hybrid',
       data: generateChartData(304.75, 3, 1.5),
     },
     {
@@ -84,15 +100,15 @@ const marketData: MarketDataType = {
       ticker: 'NFLX',
       change: '+0.14%',
       color: '#4ade80',
-      logo: 'https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI=w480-h960-rw',
+      logo: 'https://cdn-icons-png.freepik.com/256/2504/2504929.png?ga=GA1.1.1595139388.1749145976&semt=ais_hybrid',
       data: generateChartData(631.22, 5, 0.7),
     },
     {
       name: 'Amazon',
       ticker: 'AMZN',
       change: '-0.34%',
-      color: '#f87171',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png',
+      color: '#ff4e4e',
+      logo: 'https://cdn-icons-png.freepik.com/256/11376/11376377.png?ga=GA1.1.1595139388.1749145976&semt=ais_hybrid',
       data: generateChartData(181.51, 2, -0.6),
     },
     {
@@ -100,7 +116,7 @@ const marketData: MarketDataType = {
       ticker: 'TSLA',
       change: '+0.53%',
       color: '#4ade80',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/383px-Tesla_T_symbol.svg.png?20170327222004',
+      logo: 'https://cdn.brandfetch.io/id2S-kXbuK/w/400/h/400/theme/dark/icon.png?c=1dxbfHSJFAPEGdCLU4o5B',
       data: generateChartData(175.22, 4, 1.8),
     },
   ],
@@ -245,7 +261,8 @@ const marketData: MarketDataType = {
 // Updated platform data with professional images
 const platformData: PlatformDataType = {
   'Metatrader 4': {
-    image: 'https://www.icmarkets.com/assets/images/about-meta-trader.webp',
+    image:
+      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img1%EF%B9%96v=4.webp',
     features: [
       'Powerful Charting and Automated Trading',
       'Servers in New York, London, and more!',
@@ -255,7 +272,8 @@ const platformData: PlatformDataType = {
     ],
   },
   'Metatrader 5': {
-    image: 'https://www.icmarkets.com/assets/images/mt5.webp',
+    image:
+      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img2%EF%B9%96v=4.webp',
     features: [
       'Pro Depth and Strategy Tester',
       'Integrated Economic Calendar',
@@ -266,7 +284,7 @@ const platformData: PlatformDataType = {
   },
   ProTrader: {
     image:
-      'https://images.pexels.com/photos/6347711/pexels-photo-6347711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img3%EF%B9%96v=4.webp',
     features: [
       'Institutional-Grade Analysis',
       'Advanced Orders & Algorithms',
@@ -277,7 +295,7 @@ const platformData: PlatformDataType = {
   },
   AppTrader: {
     image:
-      'https://images.pexels.com/photos/6347711/pexels-photo-6347711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img4%EF%B9%96v=4.webp',
     features: [
       'Mobile-First Trading Experience',
       'Biometric Security Features',
@@ -288,7 +306,7 @@ const platformData: PlatformDataType = {
   },
   'CopyTrader App': {
     image:
-      'https://images.pexels.com/photos/6347711/pexels-photo-6347711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img5%EF%B9%96v=4.webp',
     features: [
       'Follow Top Traders Globally',
       'Automated Position Copying',
@@ -385,14 +403,14 @@ export const MarketSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-[#0D1229]/60 backdrop-blur-md rounded-xl p-4 shadow-lg w-full max-w-4xl mx-auto">
+        <div className="bg-[#04006a]/10 border border-slate-800/60 backdrop-blur-md rounded-3xl p-8 shadow-lg w-full max-w-4xl mx-auto">
           {marketData[activeMarket]?.map((item: MarketItem, i: number) => (
             <div
-              key={i}
+              key={item.name}
               className="flex justify-between items-center py-3 border-b border-white/10 last:border-none"
             >
               <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-3 overflow-hidden">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4 overflow-hidden">
                   <img
                     src={item.logo}
                     alt={item.name}
@@ -553,14 +571,12 @@ export const PlatformSection: React.FC = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
-          <div className="w-full max-w-md rounded-xl shadow-lg overflow-hidden bg-[#0D1229]/60 backdrop-blur-md border border-white/10">
-            <div className="w-full h-70 overflow-hidden relative">
-              <img
-                src={platformData[activePlatform].image}
-                alt={activePlatform}
-                className="w-full h-full object-cover transition-transform hover:scale-105 duration-700"
-              />
-            </div>
+          <div className="w-100 overflow-hidden relative">
+            <img
+              src={platformData[activePlatform].image}
+              alt={activePlatform}
+              className="w-full h-full object-cover transition-transform hover:scale-105 duration-700"
+            />
           </div>
 
           <ul className="space-y-4 max-w-md">
@@ -596,14 +612,14 @@ const TabbedSections: React.FC = () => {
       <div className="absolute inset-0 bg-bodydark backdrop-blur-lg z-0"></div>
 
       {/* Spinning Mirrorcaps logo in top-left */}
-      <div className="absolute top-150 -left-20 z-2 overflow-hidden w-180 h-180 -translate-x-1/2 -translate-y-1/2 opacity-70">
+      <div className="absolute top-180 left-0 z-2 overflow-hidden w-180 h-180 -translate-y-1/3 opacity-30">
         <motion.img
           src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/market-transaction-animation.webp"
           alt="Mirrorcaps Logo"
           className="w-full h-full"
           animate={logoAnimation}
         />
-        <div className="absolute top-0 left-0 w-full h-full  bg-gradient-to-b from-[#1218260d] via-bodydark to-bodydark"></div>
+        <div className="absolute top-0 left-0 w-full h-full  bg-gradient-to-b from-[#12182600] via-bodydark to-bodydark"></div>
       </div>
 
       <div className="absolute top-40 -left-40 w-60 h-60 bg-cyan-500/30 blur-3xl rounded-full" />

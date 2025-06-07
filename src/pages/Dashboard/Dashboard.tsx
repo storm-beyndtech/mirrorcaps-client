@@ -10,7 +10,8 @@ import RecentTrades from '@/components/RecentTrades';
 import RecentTransactions from '@/components/RecentTransactions';
 import MiniBals from '@/components/MiniBals';
 import CopyTraderErrorModal from '@/components/CopyTraderErrorModal';
-import { useNavigate } from 'react-router-dom';
+import DashboardRankOverview from '@/components/DashboardRankOverview';
+import { Link, useNavigate } from 'react-router-dom';
 import { Trader } from '@/types/types';
 
 const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
@@ -108,8 +109,6 @@ export default function Dashboard() {
 
   return (
     <>
-      {balancePlusWithdraw === 0 && <NoDepositAlert />}
-      {!user.documentNumber && <NoKycAlert />}
       <CopyTraderErrorModal
         isOpen={showError}
         message={errorMessage}
@@ -120,29 +119,79 @@ export default function Dashboard() {
         }}
       />
 
-      <div className="w-full flex gap-5 my-5 max-[900px]:flex-col">
-        <div className="flex-shrink-0">
-          <Balance user={user} trades={trades.length} />
-        </div>
-
-        <div className="flex-grow overflow-x-auto">
-          <TraderGrid traders={traders} onCopyTrader={copyTrader} />
-        </div>
+      {/* Mobile alerts - show first on mobile */}
+      <div className="block lg:hidden mb-5">
+        {balancePlusWithdraw === 0 && <NoDepositAlert />}
+        {!user.documentNumber && <NoKycAlert />}
       </div>
 
-      <div className="w-full my-5">
-        <MiniBals />
-      </div>
-      <div className="w-full flex flex-wrap gap-5 my-5 max-[900px]:flex-col">
-        <div className="w-full flex-1">
-          <RecentTrades />
+      {/* Main grid layout */}
+      <div className="flex flex-col-reverse lg:flex-row gap-5 my-5">
+        {/* Left column - 70% on desktop */}
+        <div className="w-full lg:w-[70%] space-y-5">
+          {/* Desktop alerts */}
+          <div className="hidden lg:block">
+            {balancePlusWithdraw === 0 && <NoDepositAlert />}
+            {!user.documentNumber && <NoKycAlert />}
+          </div>
+
+          {/* Traders Grid - limit to 3 cards */}
+          <div className="overflow-x-auto">
+            <div className="flex justify-between items-center mb-5">
+              <h4 className="text-gray-600 dark:text-gray-100 font-medium">
+                Copy Traders
+              </h4>
+
+              <Link
+                to="/dashboard/copytrading"
+                className="text-xs px-4 py-1.5 border border-brandblue dark:text-gray-400 text-gray-600 max-sm:hidden rounded bg-transparent font-semibold"
+              >
+                All Traders
+              </Link>
+            </div>
+            <TraderGrid
+              traders={traders.slice(0, 3)}
+              onCopyTrader={copyTrader}
+            />
+          </div>
+
+          {/* Mini Balances */}
+          <div>
+            <MiniBals />
+          </div>
+
+          {/* Transaction Tables Row */}
+          <div className="flex flex-col md:flex-row gap-5">
+            <div className="flex-1">
+              <RecentTrades />
+            </div>
+            <div className="flex-1">
+              <RecentTransactions />
+            </div>
+          </div>
+
+          <div className="sm:hidden">
+            <DashboardRankOverview />
+          </div>
+
+          {/* Stock Chart */}
+          <div className="h-125 flex items-center justify-center rounded-xl shadow-1 bg-white bg-opacity-90 dark:bg-gray-900/50">
+            <StockChart />
+          </div>
         </div>
-        <div className="w-full flex-1">
-          <RecentTransactions />
+
+        {/* Right column - 30% on desktop */}
+        <div className="w-full lg:w-[30%] space-y-5">
+          {/* Main Balance */}
+          <div className="flex-shrink-0">
+            <Balance user={user} trades={trades.length} />
+          </div>
+
+          {/* Rank Overview */}
+          <div className="max-sm:hidden">
+            <DashboardRankOverview />
+          </div>
         </div>
-      </div>
-      <div className="h-125 flex items-center justify-center mb-4 rounded-3xl shadow-1 bg-white bg-opacity-90 dark:bg-gray-950">
-        <StockChart />
       </div>
     </>
   );

@@ -20,8 +20,8 @@ export default function Sec2() {
           your own strategy to others to be copied and profit from that.
         </p>
 
-        <Link to="/register">
-          <Button size="lg" className="hover:opacity-90 text-white">
+        <Link to="/register" className="mt-5 block">
+          <Button size="lg" className="hover:opacity-90 text-white text-sm">
             Start Copytrading
           </Button>
         </Link>

@@ -71,13 +71,13 @@ export default function NavBar() {
           </div>
           <div className="flex items-center space-x-4 ml-auto">
             <Link to="/register">
-              <button className="px-4 py-1 bg-transparent border border-blue-600 text-white text-sm rounded transition-colors">
+              <button className="px-5 py-1 bg-red-500 hover:bg-red-700  text-white font-medium text-sm rounded transition-colors">
                 Sign up
               </button>
             </Link>
 
             <Link to="/login">
-              <button className="px-4 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded transition-colors">
+              <button className="px-5 py-1 bg-green-600 hover:bg-green-700 text-white font-medium text-sm rounded transition-colors">
                 Login
               </button>
             </Link>
@@ -317,7 +317,7 @@ export default function NavBar() {
                     </button>
 
                     {activeDropdown === 'company' && (
-                      <div className="absolute top-full left-0 mt-2 w-[700px] bg-gray-900 border border-gray-800/40 p-6">
+                      <div className="absolute top-full right-0 mt-2 w-[700px] bg-gray-900 border border-gray-800/40 p-6">
                         <div className="grid grid-cols-3 gap-4">
                           <div className="col-span-2 grid grid-cols-2 gap-4">
                             <div>
@@ -326,7 +326,7 @@ export default function NavBar() {
                               </h4>
                               <ul className="space-y-2">
                                 {companyDropDownLinks
-                                  .slice(0, 5)
+                                  .slice(0, 6)
                                   .map((link, i) => (
                                     <li>
                                       <Link
@@ -346,7 +346,7 @@ export default function NavBar() {
                               </h4>
                               <ul className="space-y-2">
                                 {companyDropDownLinks
-                                  .slice(5, 9)
+                                  .slice(6, 12)
                                   .map((link, i) => (
                                     <li>
                                       <Link
@@ -397,8 +397,8 @@ export default function NavBar() {
                                 TRADING TOOLS
                               </h4>
                               <ul className="space-y-2">
-                                {marketDropDownLinks
-                                  .slice(0, 4)
+                                {toolsDropDownLinks
+                                  .slice(0, 5)
                                   .map((link, i) => (
                                     <li>
                                       <Link
@@ -417,8 +417,8 @@ export default function NavBar() {
                                 PLATFORMS
                               </h4>
                               <ul className="space-y-2">
-                                {marketDropDownLinks
-                                  .slice(4, 8)
+                                {toolsDropDownLinks
+                                  .slice(5, 8)
                                   .map((link, i) => (
                                     <li>
                                       <Link

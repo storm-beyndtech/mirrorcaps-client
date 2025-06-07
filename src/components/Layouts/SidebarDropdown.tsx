@@ -20,8 +20,10 @@ export default function SidebarDropdown({
   return (
     <div>
       <button
-        className={`text-xs group relative flex w-full items-center gap-2.5 rounded-sm py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
-          links.some((link) => pathname.includes(link.href)) ? 'bg-black' : ''
+        className={`text-xs group relative flex w-full items-center gap-2.5 rounded-2xl py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
+          links.some((link) => pathname.includes(link.href))
+            ? 'bg-[#14161e]/70 !text-cyan-400'
+            : ''
         }`}
         onClick={() => setOpen(!open)}
       >

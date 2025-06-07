@@ -10,6 +10,7 @@ export default function ContactUs() {
       <Hero2
         title="Contact Support"
         subtitle="Send a message and get a response Asap"
+        backgroundUrl='https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/contact-us-banner-bg%EF%B9%96v=1.webp'
       />
       <ContactForm />
       <Footer />

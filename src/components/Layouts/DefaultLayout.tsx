@@ -25,8 +25,8 @@ export default function DefaultLayout() {
   if (fetching || !user) return <PageLoader />;
 
   return (
-    <div className="bg-gray-100 dark:bg-bodydark">
-      <div className="flex h-screen overflow-hidden">
+    <div className="bg-gray-100 dark:bg-[#0f1117]">
+      <div className="flex h-screen overflow-hidden p-5">
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">

@@ -14,7 +14,6 @@ import {
   Layers,
   Combine,
   Award,
-  Users,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -56,13 +55,13 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
   return (
     <aside
       ref={sidebar}
-      className={`text-xs absolute left-0 top-0 z-999999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-gray-950 duration-300 ease-linear lg:static lg:translate-x-0 ${
+      className={`text-xs rounded-2xl absolute left-0 top-0 z-999999 flex h-fit pb-5 w-64 flex-col overflow-y-hidden bg-black duration-300 ease-linear lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
-      <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+      <div className="flex items-center justify-between gap-2 px-6 py-4">
         <NavLink to="/">
-          <img src={Logo} alt="Logo" className="h-9 w-auto" />
+          <img src={Logo} alt="Logo" className="w-36" />
         </NavLink>
         <button
           ref={trigger}
@@ -76,16 +75,16 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
       </div>
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
+        <nav className="mt-5 py-4 px-3 lg:mt-9">
           <ul className="mb-10 flex flex-col gap-1.5">
             <li>
               <NavLink
                 to="/dashboard"
-                className={`text-xs group relative flex items-center gap-2.5 rounded-sm py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
-                  pathname === '/dashboard' && 'bg-blue-500/5'
+                className={`text-xs group relative flex items-center gap-2.5 rounded-2xl py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
+                  pathname === '/dashboard' && 'bg-[#14161e]/70 !text-cyan-400'
                 }`}
               >
-                <Home strokeWidth={1.5} className="text-xl text-blue-400" />
+                <Home strokeWidth={1.8} className={`text-xl`} />
                 Dashboard
               </NavLink>
             </li>
@@ -93,9 +92,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             {/* Transactions drop down */}
             <SidebarDropdown
               title="Payments"
-              icon={
-                <Landmark strokeWidth={1.5} className="text-xl text-blue-400" />
-              }
+              icon={<Landmark strokeWidth={1.8} className={`text-xl`} />}
               links={[
                 { label: 'Deposit', href: '/dashboard/deposit' },
                 { label: 'Withdrawal', href: '/dashboard/withdrawal' },
@@ -105,36 +102,20 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             <li>
               <NavLink
                 to="/dashboard/copytrading"
-                className={`text-xs group relative flex items-center gap-2.5 rounded-sm py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
-                  pathname === '/dashboard/copytrading' && 'bg-blue-500/5'
+                className={`text-xs group relative flex items-center gap-2.5 rounded-2xl py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
+                  pathname === '/dashboard/copytrading' &&
+                  'bg-[#14161e]/70 !text-cyan-400'
                 }`}
               >
-                <BarChart2
-                  strokeWidth={1.5}
-                  className="text-xl text-blue-400"
-                />
+                <BarChart2 strokeWidth={1.8} className={`text-xl`} />
                 Copytrading
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink
-                to="/dashboard/traders"
-                className={`text-xs group relative flex items-center gap-2.5 rounded-sm py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
-                  pathname === '/dashboard/traders' && 'bg-blue-500/5'
-                }`}
-              >
-                <Users strokeWidth={1.5} className="text-xl text-blue-400" />
-                Traders
               </NavLink>
             </li>
 
             {/* Trade History drop down */}
             <SidebarDropdown
               title="Trade History"
-              icon={
-                <Layers strokeWidth={1.5} className="text-xl text-blue-400" />
-              }
+              icon={<Layers strokeWidth={1.8} className={`text-xl`} />}
               links={[
                 {
                   label: 'Copy Trade History',
@@ -150,11 +131,12 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             <li>
               <NavLink
                 to="/dashboard/transactions"
-                className={`text-xs group relative flex items-center gap-2.5 rounded-sm py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
-                  pathname.includes('transactions') && 'bg-blue-500/5'
+                className={`text-xs group relative flex items-center gap-2.5 rounded-2xl py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
+                  pathname.includes('transactions') &&
+                  'bg-[#14161e]/70 !text-cyan-400'
                 }`}
               >
-                <Coins strokeWidth={1.5} className="text-xl text-blue-400" />
+                <Coins strokeWidth={1.8} className={`text-xl`} />
                 All Transactions
               </NavLink>
             </li>
@@ -164,9 +146,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             {/* Market tools drop down */}
             <SidebarDropdown
               title="Market Tools"
-              icon={
-                <Combine strokeWidth={1.5} className="text-xl text-blue-400" />
-              }
+              icon={<Combine strokeWidth={1.8} className={`text-xl`} />}
               links={[
                 {
                   label: 'Technical Insights',
@@ -186,11 +166,12 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             <li>
               <NavLink
                 to="/dashboard/loyalty-status"
-                className={`text-xs group relative flex items-center gap-2.5 rounded-sm py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
-                  pathname.includes('affiliate') && 'bg-blue-500/5'
+                className={`text-xs group relative flex items-center gap-2.5 rounded-2xl py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black ${
+                  pathname.includes('affiliate') &&
+                  'bg-[#14161e]/70 !text-cyan-400'
                 }`}
               >
-                <Award strokeWidth={1.5} className="text-xl text-blue-400" />
+                <Award strokeWidth={1.8} className={`text-xl`} />
                 Loyalty Status
               </NavLink>
             </li>
@@ -199,9 +180,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
           <ul className="flex flex-col gap-1.5">
             <SidebarDropdown
               title="More"
-              icon={
-                <ListTree strokeWidth={1.5} className="text-xl text-blue-400" />
-              }
+              icon={<ListTree strokeWidth={1.8} className={`text-xl`} />}
               links={[
                 { label: 'Settings', href: '/dashboard/settings' },
                 {
@@ -217,10 +196,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             />
 
             <li
-              className="cursor-pointer text-xs group relative flex items-center gap-2.5 rounded-sm py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black"
+              className="cursor-pointer text-xs group relative flex items-center gap-2.5 rounded-2xl py-2.5 px-7.5 text-gray-300 font-montserrat duration-300 ease-in-out hover:bg-black dark:hover:bg-black"
               onClick={() => logout()}
             >
-              <LogOut strokeWidth={1.5} className="text-xl text-blue-400" />
+              <LogOut strokeWidth={1.8} className={`text-xl`} />
               Sign out
             </li>
           </ul>

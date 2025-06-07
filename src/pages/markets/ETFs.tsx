@@ -1,15 +1,21 @@
+import {
+  EtfsHeroSection,
+  ETFsTableSection,
+  StartTradingSection,
+} from '@/components/EtfsPageSections';
 import Footer from '@/components/Footer';
 import NavBar from '@/components/Navbar';
 import { PopularMarkets } from '@/components/PopularMarkets';
-import Sec7 from '@/components/Sec7';
 import StepsSection from '@/components/StepsSection';
 
 export default function ETFs() {
   return (
     <main className="min-h-screen bg-[#070c1b]">
       <NavBar />
+      <EtfsHeroSection />
+      <StartTradingSection />
       <PopularMarkets type="etfs" />
-      <Sec7 />
+      <ETFsTableSection />
       <StepsSection />
       <Footer />
     </main>

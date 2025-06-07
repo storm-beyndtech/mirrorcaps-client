@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { logoAnimation2 } from '@/lib/utils';
-import logo from '../assets/logo.png';
 
 const PageLoader: React.FC = () => {
   return (
@@ -23,7 +22,7 @@ const PageLoader: React.FC = () => {
         <div className="load-text">
           <img
             loading="lazy"
-            src={logo}
+            src="/loader-logo.png"
             alt="Mirrorcaps logo text"
             width={308}
             height={107}

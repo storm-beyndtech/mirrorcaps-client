@@ -1,6 +1,9 @@
 import { contextData } from '@/context/AuthContext';
-import { Wallet, TrendingUp, ArrowDownCircle, BarChart2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { FaChartSimple } from 'react-icons/fa6';
+import { GiWallet } from 'react-icons/gi';
+import { PiChartDonutFill } from 'react-icons/pi';
+import { RiWalletFill } from 'react-icons/ri';
 
 export default function MiniBals() {
   const [trades, setTrades] = useState([]);
@@ -34,60 +37,61 @@ export default function MiniBals() {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-      <div className="flex flex-col gap-2 p-4 rounded-lg bg-white bgRadialDark shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex items-center justify-between">
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+      <div className="flex items-center justify-between gap-2 p-3 text-right rounded-xl bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-md transition-shadow">
+        <GiWallet className="text-[40px] text-brandblue flex-shrink-0" />
+
+        <div className="space-y-1">
+          <p className="text-[10px] uppercase font-medium text-gray-500 dark:text-gray-400">
             Deposit
           </p>
-          <Wallet size={18} className="text-green-500" />
+          <h2 className="text-xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100">
+            {user?.deposit?.toLocaleString('en-US')}
+            <span className="font-mono font-normal text-base ml-1">$</span>
+          </h2>
         </div>
-
-        <h2 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-100">
-          {user?.deposit?.toLocaleString('en-US')}
-          <span className="font-mono font-normal text-base ml-1">$</span>
-        </h2>
       </div>
 
-      <div className="flex flex-col gap-2 p-4 rounded-lg bg-white bgRadialDark shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex items-center justify-between">
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Interest
-          </p>
-          <TrendingUp size={18} className="text-sky-500" />
-        </div>
+      <div className="flex items-center justify-between gap-2 p-3 text-right rounded-xl bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-md transition-shadow">
+        <RiWalletFill className="text-[40px] text-brandblue flex-shrink-0" />
 
-        <h2 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-100">
-          {user?.interest?.toLocaleString('en-US')}
-          <span className="font-mono font-normal text-base ml-1">$</span>
-        </h2>
-      </div>
-
-      <div className="flex flex-col gap-2 p-4 rounded-lg bg-white bgRadialDark shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex items-center justify-between">
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+        <div className="space-y-1">
+          <p className="text-[10px] uppercase font-medium text-gray-500 dark:text-gray-400">
             Withdrawal
           </p>
-          <ArrowDownCircle size={18} className="text-rose-500" />
-        </div>
 
-        <h2 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-100">
-          {user?.withdraw?.toLocaleString('en-US')}
-          <span className="font-mono font-normal text-base ml-1">$</span>
-        </h2>
+          <h2 className="text-xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100">
+            {user?.withdraw?.toLocaleString('en-US')}
+            <span className="font-mono font-normal text-base ml-1">$</span>
+          </h2>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-2 p-4 rounded-lg bg-white bgRadialDark shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex items-center justify-between">
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Total Trades
-          </p>
-          <BarChart2 size={18} className="text-blue-600" />
-        </div>
+      <div className="flex items-center justify-between gap-2 p-3 text-right rounded-xl bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-md transition-shadow">
+        <FaChartSimple className="text-[40px] text-brandblue flex-shrink-0" />
 
-        <h2 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-100">
-          {trades.length || '0'}
-        </h2>
+        <div className="space-y-1">
+          <p className="text-[10px] uppercase font-medium text-gray-500 dark:text-gray-400">
+            Interest
+          </p>
+          <h2 className="text-xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100">
+            {user?.interest?.toLocaleString('en-US')}
+            <span className="font-mono font-normal text-base ml-1">$</span>
+          </h2>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-2 p-3 text-right rounded-xl bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-md transition-shadow">
+        <PiChartDonutFill className="text-[40px] text-brandblue flex-shrink-0" />
+
+        <div className="space-y-1">
+          <p className="text-[10px] uppercase font-medium text-gray-500 dark:text-gray-400">
+            Trades
+          </p>
+          <h2 className="text-xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100">
+            {trades.length || '0'}
+          </h2>
+        </div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const Header = (props: {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-950 shadow-sm z-10 px-4 rounded-xl mx-3 my-3">
+    <header className="bg-white dark:bg-black shadow-sm z-10 px-4 py-1.5 rounded-2xl mx-3">
       <div className="flex items-center gap-2 justify-between h-14 px-2">
         <button
           aria-controls="sidebar"
@@ -78,10 +78,9 @@ const Header = (props: {
           </span>
         </button>
 
-        {/* Dummy CopyRef */}
         <div
           onClick={() => handleCopy(user.username)}
-          className="flex items-center space-x-2 px-4 py-1 border dark:border-gray-800 border-gray-400 rounded"
+          className="max-sm:hidden flex items-center space-x-2 px-4 py-1 border dark:border-gray-800 border-gray-400 rounded"
         >
           <span className="text-xs font-medium text-gray-600 dark:text-gray-300">
             Copy Referral Link
@@ -93,7 +92,7 @@ const Header = (props: {
         <div className="flex items-center space-x-2">
           <Link
             to="/dashboard/practice"
-            className="text-xs px-4 py-1.5 text-white max-sm:hidden rounded hover:bg-gray-800 bg-blue-500 font-semibold"
+            className="text-xs px-4 py-1.5 border border-brandblue dark:text-gray-400 text-gray-600 max-sm:hidden rounded bg-transparent font-semibold"
           >
             Practice Area
           </Link>
@@ -140,7 +139,7 @@ const Header = (props: {
               className="flex items-center space-x-2 text-gray-700 dark:text-gray-200 focus:outline-none"
               onClick={toggleProfileDropdown}
             >
-              <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+              <div className="h-8 w-8 rounded-full bg-gray-900/50 flex items-center justify-center text-white">
                 <User size={16} />
               </div>
             </button>

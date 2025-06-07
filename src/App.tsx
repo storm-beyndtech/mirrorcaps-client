@@ -42,7 +42,6 @@ import UserOnboarding from './pages/Auth/UserOnboarding';
 import OtpPage from './pages/Auth/OtpPage';
 import Deposit from './pages/Dashboard/Deposit';
 import Withdraw from './pages/Dashboard/Withdraw';
-import Trades from './pages/Dashboard/Trades';
 import TradeHistory from './components/TradeHistory';
 import Transactions from './pages/Dashboard/Transactions';
 import TechnicalInsight from './pages/Dashboard/TechnicalInsight';
@@ -73,6 +72,8 @@ import TradersPage from './pages/Dashboard/TradersPage';
 import CopyTraderErrorModal from './components/CopyTraderErrorModal';
 import { useNavigate } from 'react-router-dom';
 import { Trader } from './types/types';
+import TradingHours from './pages/markets/TradingHours';
+import WhyChooseUs from './pages/company/WhyChooseUs';
 
 function App() {
   const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
@@ -198,7 +199,9 @@ function App() {
 
           {/* Company Routes */}
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/why-choose-us" element={<WhyChooseUs />} />
           <Route path="/awards" element={<Awards />} />
+          <Route path="/regulations" element={<Regulations />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/compare-account" element={<CompareAcc />} />
@@ -223,7 +226,7 @@ function App() {
           <Route path="/indices" element={<Indices />} />
           <Route path="/share-cfds" element={<ShareCFDs />} />
           <Route path="/spreads" element={<Spreads />} />
-          <Route path="/trading-hours" element={<Home />} />
+          <Route path="/trading-hours" element={<TradingHours />} />
 
           {/* Tools Routes */}
           <Route path="/ai-market-buzz" element={<AiMarketBuzz />} />
@@ -315,7 +318,12 @@ function App() {
                       path="/dashboard/withdrawal"
                       element={<Withdraw />}
                     />
-                    <Route path="/dashboard/copytrading" element={<Trades />} />
+                    <Route
+                      path="/dashboard/copytrading"
+                      element={
+                        <TradersPage traders={traders} onCopy={copyTrader} />
+                      }
+                    />
                     <Route
                       path="/dashboard/traders"
                       element={

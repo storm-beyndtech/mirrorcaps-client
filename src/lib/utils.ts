@@ -78,12 +78,24 @@ export const companyDropDownLinks: MenuItem[] = [
     to: '/about',
   },
   {
+    label: 'Why Choose Us',
+    to: '/why-choose-us',
+  },
+  {
+    label: 'Our Infrastructure',
+    to: '/trading-infrastructure',
+  },
+  {
     label: 'Awards',
     to: '/awards',
   },
   {
     label: 'Careers',
     to: '/careers',
+  },
+  {
+    label: 'Regulations',
+    to: '/regulations',
   },
   {
     label: 'Support',
