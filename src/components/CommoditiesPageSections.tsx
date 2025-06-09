@@ -10,7 +10,7 @@ export const CommoditiesChart = () => {
           Don't miss the next Gold rush,
         </h1>
         <h2 className="text-4xl md:text-6xl font-bold text-white">
-          trade with Copyelite
+          trade with Mirrorcaps
         </h2>
       </div>
 

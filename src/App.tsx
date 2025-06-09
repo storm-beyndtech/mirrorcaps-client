@@ -87,6 +87,7 @@ function App() {
     location.pathname.includes('/admin') ||
     location.pathname.includes('/login') ||
     location.pathname.includes('/register') ||
+    location.pathname.includes('/account-setup');
     location.pathname.includes('/password-reset');
   const { fetching, user, fetchUser } = contextData();
   const [assetsLoaded, setAssetsLoaded] = useState(false);
