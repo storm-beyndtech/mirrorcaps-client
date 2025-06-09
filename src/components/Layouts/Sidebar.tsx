@@ -4,7 +4,6 @@ import Logo from '../../assets/logo.svg';
 import { contextData } from '../../context/AuthContext';
 import SidebarDropdown from './SidebarDropdown';
 import {
-  Home,
   BarChart2,
   Coins,
   ListTree,
@@ -15,6 +14,7 @@ import {
   Combine,
   Award,
 } from 'lucide-react';
+import { IoHome } from 'react-icons/io5';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -55,11 +55,12 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
   return (
     <aside
       ref={sidebar}
-      className={`text-xs rounded-2xl absolute left-0 top-0 z-999999 flex h-fit pb-5 w-64 flex-col overflow-y-hidden bg-black duration-300 ease-linear lg:static lg:translate-x-0 ${
+      className={`text-xs rounded-2xl absolute left-0 top-0 z-999999 flex h-screen w-64 flex-col bg-black duration-300 ease-linear lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
-      <div className="flex items-center justify-between gap-2 px-6 py-4">
+      {/* Fixed header */}
+      <div className="flex items-center justify-between gap-2 px-6 py-4 flex-shrink-0">
         <NavLink to="/">
           <img src={Logo} alt="Logo" className="w-36" />
         </NavLink>
@@ -74,7 +75,8 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
         </button>
       </div>
 
-      <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+      {/* Scrollable content */}
+      <div className="flex-1 overflow-y-auto no-scrollbar">
         <nav className="mt-5 py-4 px-3 lg:mt-9">
           <ul className="mb-10 flex flex-col gap-1.5">
             <li>
@@ -84,7 +86,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
                   pathname === '/dashboard' && 'bg-[#14161e]/70 !text-cyan-400'
                 }`}
               >
-                <Home strokeWidth={1.8} className={`text-xl`} />
+                <IoHome strokeWidth={1.8} className={`text-2xl`} />
                 Dashboard
               </NavLink>
             </li>
@@ -177,7 +179,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             </li>
           </ul>
 
-          <ul className="flex flex-col gap-1.5">
+          <ul className="flex flex-col gap-1.5 pb-5">
             <SidebarDropdown
               title="More"
               icon={<ListTree strokeWidth={1.8} className={`text-xl`} />}

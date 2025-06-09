@@ -13,11 +13,60 @@ const reviewSites = [
   { name: 'ForexBrokers.com', rating: 4.5 },
 ];
 
+// Featured logos (8 empty placeholders)
+const featuredLogos = [
+  { name: 'Featured Logo 1', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-myfxbook.svg' },
+  { name: 'Featured Logo 2', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-benzinga.svg' },
+  { name: 'Featured Logo 3', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-business-insider.svg' },
+  { name: 'Featured Logo 4', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-bloomberg.svg' },
+  { name: 'Featured Logo 5', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-fxstreet.svg' },
+  { name: 'Featured Logo 6', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-forexfactory.svg' },
+  { name: 'Featured Logo 7', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-marketwatch.svg' },
+  { name: 'Featured Logo 8', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-yahoo.svg' },
+];
+
+// Awards data
+const awards = [
+  {
+    name: 'Award 1',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img1.webp',
+  },
+  {
+    name: 'Award 2',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img2.webp',
+  },
+  {
+    name: 'Award 3',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img3.webp',
+  },
+  {
+    name: 'Award 4',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img4.webp',
+  },
+  {
+    name: 'Award 5',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img5.webp',
+  },
+  {
+    name: 'Award 6',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img6.webp',
+  },
+  {
+    name: 'Award 7',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img7.webp',
+  },
+  {
+    name: 'Award 8',
+    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img8.webp',
+  },
+];
+
 // Tab content type
 interface TabContent {
   title: string;
   active: boolean;
 }
+
 // Tab content type
 interface AnimatedCounterProp {
   delay?: number;
@@ -95,6 +144,75 @@ const AnimatedCounter = ({ endValue, delay = 0 }: AnimatedCounterProp) => {
   }, [endValue, delay, isVisible]);
 
   return <span ref={counterRef}>{count}</span>;
+};
+
+// Render tab content based on active tab
+const renderTabContent = (activeTab: string) => {
+  switch (activeTab) {
+    case 'Reviewed':
+      return (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-12">
+          {reviewSites.map((site, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center space-y-2"
+            >
+              <div className="h-12 flex items-center justify-center">
+                <div className="w-32 h-8 bg-gray-800/50 rounded flex items-center justify-center text-sm font-semibold">
+                  {site.name}
+                </div>
+              </div>
+              <StarRating rating={site.rating} />
+            </div>
+          ))}
+        </div>
+      );
+
+    case 'Featured at':
+      return (
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 mt-12">
+          {featuredLogos.map((logo, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center space-y-2"
+            >
+              <div className="h-16 w-32 flex items-center justify-center bg-gray-800/50 rounded">
+                {logo.src ? (
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                ) : (
+                  <div className="text-sm font-semibold text-white/60">
+                    {logo.name}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+
+    case 'Awards':
+      return (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+          {awards.map((award, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center space-y-2"
+            >
+              <div className="w-40">
+                <img src={award.src} alt={award.name} className="w-full" />
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+
+    default:
+      return null;
+  }
 };
 
 // Main trading hero section component
@@ -285,22 +403,8 @@ const Sec10 = () => {
               </div>
             </div>
 
-            {/* Review logos */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-12">
-              {reviewSites.map((site, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center justify-center space-y-2"
-                >
-                  <div className="h-12 flex items-center justify-center">
-                    <div className="w-32 h-8 bg-gray-800/50 rounded flex items-center justify-center text-sm font-semibold">
-                      {site.name}
-                    </div>
-                  </div>
-                  <StarRating rating={site.rating} />
-                </div>
-              ))}
-            </div>
+            {/* Dynamic tab content */}
+            {renderTabContent(activeTab)}
           </div>
         </AnimatedSection>
 

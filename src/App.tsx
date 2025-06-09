@@ -74,6 +74,9 @@ import { useNavigate } from 'react-router-dom';
 import { Trader } from './types/types';
 import TradingHours from './pages/markets/TradingHours';
 import WhyChooseUs from './pages/company/WhyChooseUs';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import AMLPolicy from './pages/AMLPolicy';
 
 function App() {
   const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
@@ -240,6 +243,14 @@ function App() {
           <Route path="/technical-views" element={<TechnicalViews />} />
           <Route path="/trade-signals" element={<TradeSignals />} />
           <Route path="/trade-vps" element={<TradeVps />} />
+
+          {/* Terms & Policy */}
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/aml-policy" element={<AMLPolicy />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

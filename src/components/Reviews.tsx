@@ -1,41 +1,28 @@
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { AnimatedSection } from './ui/animated-section';
 
-const Review = ({ quote, author, role, rating, delay, avatar }: any) => {
+const Review = ({ quote, author, role, rating }: any) => {
   return (
-    <AnimatedSection
-      delay={delay}
-      className="bg-white shadow-md rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow"
-    >
-      <div className="flex mb-4">
+    <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4 flex-shrink-0">
+      <div className="flex mb-3">
         {[...Array(5)].map((_, i) => (
-          <Star
+          <div
             key={i}
-            size={16}
-            className={
-              i < rating ? 'text-blue-600 fill-blue-600' : 'text-gray-300'
-            }
-          />
+            className={`w-5 h-5 flex items-center justify-center mr-1 ${
+              i < rating ? 'bg-green-500' : 'bg-gray-300'
+            }`}
+          >
+            <Star size={12} className="text-white fill-white" />
+          </div>
         ))}
       </div>
-      <div className="relative mb-6">
-        <Quote size={24} className="text-blue-100 absolute -top-2 -left-1" />
-        <p className="text-gray-700 italic pl-5">{quote}</p>
+      <h3 className="font-semibold text-gray-900 mb-1">{author}</h3>
+      <h4 className="font-medium text-gray-700 mb-2 text-sm">{role}</h4>
+      <p className="text-gray-700 text-sm leading-relaxed mb-3">{quote}</p>
+      <div className="flex items-center text-xs text-green-600">
+        <span>Mirrorcaps Reviews</span>
       </div>
-      <div className="flex items-center mt-4">
-        <div className="w-12 h-12 mr-4 rounded-full overflow-hidden flex-shrink-0">
-          <img
-            src={avatar}
-            alt={`${author} avatar`}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div>
-          <p className="font-semibold text-gray-900">{author}</p>
-          <p className="text-sm text-gray-500">{role}</p>
-        </div>
-      </div>
-    </AnimatedSection>
+    </div>
   );
 };
 
@@ -43,107 +30,212 @@ export default function Reviews() {
   const testimonials = [
     {
       quote:
-        'Interactive Mirrorcaps has completely transformed my trading strategy. The AI predictions are incredibly accurate, giving me confidence in every trade I make.',
+        'First things first, this broker is appealing because it has a solid legal base under the belt. Renowned watch dogs in the game are supervising Mirrorcaps and it definitely adds up credibility to it. Secondly, I should underline the uniqueness of their copy trading service which is entirely standalone and autonomous. These are captivating traits for me.',
       author: 'Alex Johnson',
-      role: 'Day Trader',
+      role: 'Copy trading works for me',
       rating: 5,
-      avatar:
-        'https://plus.unsplash.com/premium_photo-1664536392779-049ba8fde933?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXZhdGFyfGVufDB8fDB8fHww',
     },
     {
       quote:
-        "I've tried many trading platforms, but Interactive Mirrorcaps stands out with its intuitive interface and powerful analytics that help me make informed decisions.",
+        "Mirrorcaps made trading accessible to everyone. For those with knowledge, and for those who lack this important part of trading. For those who have time and are willing to spend it trading, but also for those who can't afford time and have other regular jobs. How? Well, they offer an incredibly simple and interesting way to trade by copying the trades from successful traders!",
       author: 'Sarah Chen',
-      role: 'Swing Trader',
+      role: 'Copy trading rocks!',
       rating: 5,
-      avatar:
-        'https://plus.unsplash.com/premium_photo-1691784781482-9af9bce05096?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D',
     },
     {
       quote:
-        'The mobile app is a game-changer. I can monitor my positions and react to market changes on the go, which has significantly improved my returns.',
+        "I was really surprised to see such a high leverage at Mirrorcapss. I'll explain why. The majority of top-tier forex brokers try to restrict leverage for their clients, maybe because they are afraid of smothing. But here I am free to apply any dicey strategy I have in my repertoire and won't concern about the security of the company.",
       author: 'Michael Rodriguez',
-      role: 'Forex Trader',
+      role: 'Apropriate leverage',
       rating: 4,
-      avatar:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
     },
     {
       quote:
-        "Interactive Mirrorcaps's risk assessment tools have helped me maintain a balanced portfolio even during market volatility. Absolutely worth every penny!",
+        'Am amazed at the unwavering and profession support I have receive from Mirrorcaps! This is so encouraging!! THUMBS UP!',
       author: 'Emma Thompson',
-      role: 'Portfolio Manager',
+      role: 'Am amazed at the unwavering and...',
       rating: 5,
-      avatar:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
     },
     {
       quote:
-        'As a beginner, I was intimidated by trading, but the educational resources and user-friendly dashboard made everything accessible. Now I am trading with confidence.',
+        "Interesting how they have managed to achieve such a high speed of execution and tight spreads at the same time. Actually it's not that interesting. I just wanted to enjoy the awesome trading conditions.",
       author: 'David Wilson',
-      role: 'Novice Investor',
+      role: 'Speed of light.',
       rating: 5,
-      avatar:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',
     },
     {
-      quote:
-        'The real-time market insights and notifications are phenomenal. I have captured opportunities I would have missed otherwise.',
+      quote: "I want understand a word about the broker's execution anyway.",
       author: 'Priya Patel',
-      role: 'Options Trader',
+      role: "What I've seen",
       rating: 4,
-      avatar:
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face',
     },
     {
       quote:
-        'Customer support is outstanding. Any questions I have are answered promptly, and the team goes above and beyond to ensure my success.',
+        "It left me thoroughly impressed. The platform's user-friendly design, diverse investment options, social trading features, and educational resources create a well-rounded ecosystem for traders and investors. Mirrorcaps has certainly set the bar high.",
       author: 'James Williams',
-      role: 'Crypto Trader',
+      role: 'My Mirrorcaps experience',
       rating: 5,
-      avatar:
-        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face',
     },
     {
       quote:
-        'The backtesting features helped me optimize my strategy before risking real money. Interactive Mirrorcaps pays for itself through improved results.',
+        'I only started to use the broker recent and I am very much impressed with all that I have seen. The customer support. WOW!',
       author: 'Olivia Garcia',
-      role: 'Algorithmic Trader',
+      role: 'What a platform',
       rating: 5,
-      avatar:
-        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face',
     },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-16 bg-gray-50">
       <div className="container px-4 md:px-8 mx-auto max-w-7xl">
         <AnimatedSection delay={0.1} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Trusted by{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              thousands
-            </span>{' '}
-            of traders worldwide
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
-            Do not just take our word for it. Here is what our users have to say
-            about their experience with Interactive Mirrorcaps.
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            We're rated Excellent on Trustpilot
+          </h1>
+
+          {/* Trustpilot rating display */}
+          <div className="flex flex-col items-center mb-8">
+            <div className="flex items-center mb-2">
+              <span className="text-lg font-semibold mr-3">Excellent</span>
+              {[...Array(5)].map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-6 h-6 flex items-center justify-center mr-1 bg-green-500`}
+                >
+                  <Star size={16} className="text-white fill-white" />
+                </div>
+              ))}
+            </div>
+            <p className="text-gray-600 text-sm">
+              Rated 4.6 / 5 based on 2,782 reviews on
+              <span className="font-semibold"> Trustpilot</span>
+            </p>
+          </div>
+
+          <p className="text-gray-500 text-sm mb-8">
+            Showing our 4 & 5 star reviews
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((review, index) => (
-            <Review
-              key={index}
-              quote={review.quote}
-              author={review.author}
-              role={review.role}
-              rating={review.rating}
-              avatar={review.avatar}
-              delay={0.2 + index * 0.1}
-            />
-          ))}
+        {/* Reviews container with fixed height and scroll */}
+        <div className="h-[600px] overflow-y-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Column 1 */}
+            <div className="space-y-4">
+              {testimonials
+                .filter((_, index) => index % 4 === 0)
+                .map((review, index) => (
+                  <Review
+                    key={`col1-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={0.2 + index * 0.1}
+                  />
+                ))}
+              {/* Add duplicate reviews for continuous scroll */}
+              {testimonials
+                .filter((_, index) => index % 4 === 0)
+                .map((review, index) => (
+                  <Review
+                    key={`col1-dup-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={1.0 + index * 0.1}
+                  />
+                ))}
+            </div>
+
+            {/* Column 2 */}
+            <div className="space-y-4">
+              {testimonials
+                .filter((_, index) => index % 4 === 1)
+                .map((review, index) => (
+                  <Review
+                    key={`col2-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={0.3 + index * 0.1}
+                  />
+                ))}
+              {/* Add duplicate reviews for continuous scroll */}
+              {testimonials
+                .filter((_, index) => index % 4 === 1)
+                .map((review, index) => (
+                  <Review
+                    key={`col2-dup-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={1.1 + index * 0.1}
+                  />
+                ))}
+            </div>
+
+            {/* Column 3 */}
+            <div className="space-y-4">
+              {testimonials
+                .filter((_, index) => index % 4 === 2)
+                .map((review, index) => (
+                  <Review
+                    key={`col3-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={0.4 + index * 0.1}
+                  />
+                ))}
+              {/* Add duplicate reviews for continuous scroll */}
+              {testimonials
+                .filter((_, index) => index % 4 === 2)
+                .map((review, index) => (
+                  <Review
+                    key={`col3-dup-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={1.2 + index * 0.1}
+                  />
+                ))}
+            </div>
+
+            {/* Column 4 */}
+            <div className="space-y-4">
+              {testimonials
+                .filter((_, index) => index % 4 === 3)
+                .map((review, index) => (
+                  <Review
+                    key={`col4-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={0.5 + index * 0.1}
+                  />
+                ))}
+              {/* Add duplicate reviews for continuous scroll */}
+              {testimonials
+                .filter((_, index) => index % 4 === 3)
+                .map((review, index) => (
+                  <Review
+                    key={`col4-dup-${index}`}
+                    quote={review.quote}
+                    author={review.author}
+                    role={review.role}
+                    rating={review.rating}
+                    delay={1.3 + index * 0.1}
+                  />
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
