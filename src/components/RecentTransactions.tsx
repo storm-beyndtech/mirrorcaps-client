@@ -58,7 +58,7 @@ const RecentTransactions = () => {
   );
 
   return (
-    <div className="w-full bg-white dark:bg-gray-900/50 rounded-lg shadow-sm overflow-hidden">
+    <div className="w-full bg-white dark:bg-gray-950 rounded-lg shadow-sm overflow-hidden">
       <div className="p-4 border-b border-gray-200 dark:border-gray-900">
         <div className="flex items-center justify-between">
           <h2 className="text-base font-semibold text-gray-800 dark:text-white">
@@ -103,7 +103,7 @@ const RecentTransactions = () => {
             {filteredTransactions.map((transaction, i) => (
               <li
                 key={i}
-                className="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-900 transition duration-150 ease-in-out"
+                className="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition duration-150 ease-in-out"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
@@ -149,7 +149,7 @@ const RecentTransactions = () => {
                     <p className="text-xs mt-0.5">
                       <span
                         className={`inline-block px-1.5 py-0.5 rounded-sm text-xs ${
-                          transaction.status === 'completed'
+                          transaction.status === 'success'
                             ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300'
                             : transaction.status === 'pending'
                               ? 'bg-yellow-50 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300'

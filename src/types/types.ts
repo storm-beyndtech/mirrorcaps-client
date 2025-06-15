@@ -3,7 +3,7 @@ export interface Trader {
   _id: string;
   name: string;
   username: string;
-  totalTrades: string;
+  totalTrades: number;
   profileImage?: string;
   bio: string;
   specialization: 'Forex' | 'Crypto' | 'Stocks' | 'Commodities' | 'Options' | 'Mixed';

@@ -22,7 +22,7 @@ const TraderForm: React.FC<TraderFormProps> = ({
   const [formData, setFormData] = useState<Omit<Trader, '_id'>>({
     name: '',
     username: '',
-    totalTrades: '',
+    totalTrades: 0,
     profileImage: '',
     bio: '',
     specialization: 'Forex' as const,
@@ -50,7 +50,7 @@ const TraderForm: React.FC<TraderFormProps> = ({
       setFormData({
         name: trader.name || '',
         username: trader.username || '',
-        totalTrades: trader.totalTrades || '',
+        totalTrades: trader.totalTrades || 0,
         profileImage: trader.profileImage || '',
         bio: trader.bio || '',
         specialization: trader.specialization || 'Forex',
@@ -320,13 +320,12 @@ const TraderForm: React.FC<TraderFormProps> = ({
                 Total Trades *
               </label>
               <input
-                type="text"
+                type="number"
                 id="totalTrades"
                 name="totalTrades"
-                value={formData.totalTrades}
+                value={formData.totalTrades === 0 ? '' : formData.totalTrades}
                 onChange={handleChange}
-                required
-                placeholder="e.g., 1,250 or 2.5K"
+                min={0}
                 className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
               />
             </div>
