@@ -37,6 +37,7 @@ const Register: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<RegistrationErrors>({});
+  const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
@@ -96,8 +97,10 @@ const Register: React.FC = () => {
         body: JSON.stringify(bodyData),
       });
 
+      const resData = await response.json();
+
       if (!response.ok) {
-        throw new Error('Registration failed');
+        throw new Error('Request failed: ' + resData.message);
       }
 
       // Handle successful registration
@@ -108,8 +111,9 @@ const Register: React.FC = () => {
           state: { ...bodyData, pageType: 'register-verification' },
         });
       }, 2000);
-    } catch (error) {
+    } catch (error:any) {
       // Handle registration error
+      setError(error.message);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -351,7 +355,7 @@ const Register: React.FC = () => {
             {submitStatus === 'error' && (
               <Alert
                 type="error"
-                message="Registration failed. Please try again."
+                message={error || 'Registration failed. Please try again.'}
               />
             )}
 
