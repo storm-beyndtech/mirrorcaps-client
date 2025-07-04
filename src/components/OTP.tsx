@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Alert from '@/components/ui/Alert';
-import { bounceAnimation, logoAnimation } from '@/lib/utils';
+import { bounceAnimation } from '@/lib/utils';
 import logo from '../assets/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import DarkModeSwitcher from '@/components/Layouts/DarkModeSwitcher';
@@ -242,6 +242,7 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
           ...basePayload,
           email: userData.email || '',
           username: userData.username || '',
+          password: userData.password,
         };
       case 'login-verification':
         return {
@@ -280,6 +281,7 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
       // Prepare the request payload based on the page type
       const payload = getRequestPayload();
 
+      console.log('Submitting OTP:', payload);
       // Placeholder for actual API call
       const response = await fetch(`${url}/users/verify-otp`, {
         method: 'POST',
@@ -289,14 +291,15 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
         body: JSON.stringify(payload),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(pageContent.errorMessage);
+        throw new Error(data.message || 'Failed to verify OTP');
       }
 
       // Handle successful verification
       setSubmitStatus('success');
-      const userData = await response.json();
-      login(userData.user);
+      login(data.user);
 
       // Redirect to appropriate page
       setTimeout(() => {
@@ -306,11 +309,14 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
         if (pageType === 'login-verification') {
           navigate('/dashboard');
         }
+        if (pageType === 'reset-password') {
+          navigate('/dashboard');
+        }
       }, 2000);
-    } catch (error) {
+    } catch (error: any) {
       // Handle error
       setSubmitStatus('error');
-      setErrorMessage(pageContent.errorMessage);
+      setErrorMessage(error.message || pageContent.errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -385,32 +391,22 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
       <div className="md:col-span-2 relative bg-bodydark hidden md:flex flex-col justify-center">
         <div className="absolute top-0 left-0 z-[4] w-full h-full bg-gradient-to-b from-brandblue/30 via-brandblue/10 to-bodydark"></div>
 
-        {/* Spinning Mirrorcaps logo in top-left */}
-        <div className="absolute top-[650px] -left-20 overflow-hidden w-[560px] h-[560px] -translate-x-1/2 -translate-y-1/2 opacity-60">
-          <motion.img
-            src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/market-transaction-animation.webp"
-            alt="Mirrorcaps Logo"
-            className="w-full h-full"
-            animate={logoAnimation}
-          />
-        </div>
-
-        <div className="absolute z-10 top-0 left-0 pt-10 lg:px-20 px-5 flex flex-col gap-6">
+        <div className="absolute z-10 top-0 left-0 pt-10 lg:pl-10 pl-5 flex flex-col gap-6">
           {/* Logo Placeholder */}
           <Link to="/" className="">
             <img src={logo} alt="logo" className="w-35" />
           </Link>
 
-          <p className="text-gray-300 text-sm mt-5 leading-6 max-w-60">
-            Welcome back to Interactive Mirrorcaps. Login and embrace endless
-            possibilities
+          <p className="text-gray-300 text-sm mt-10 leading-6 max-w-80">
+            Protecting your account with extra security verification. Your funds
+            and data remain safe with us.
           </p>
 
           <motion.div className="flex" animate={bounceAnimation}>
             <img
               src="https://protradercopy.com/static/images/about/startingright.png"
-              alt="Login"
-              className="w-[80%]"
+              alt="Otp"
+              className="w-[100%]"
             />
           </motion.div>
         </div>
