@@ -1,13 +1,13 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import hoursBg from '../assets/our-trading-infrastructure-row3-img1.webp';
 
 export const TradingHoursHeroSection: React.FC = () => {
   return (
     <section
       className="relative min-h-150 overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/trading-hovers-banner-bg.webp')",
+        backgroundImage: hoursBg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

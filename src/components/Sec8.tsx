@@ -4,6 +4,10 @@ import {
   AnimatedSlideLeft,
   AnimatedSlideRight,
 } from './ui/animated-section';
+import spinner from '../assets/market-transaction-animation.webp';
+import partnerLogo1 from '../assets/Partners/home-row4-img1.webp';
+import partnerLogo2 from '../assets/Partners/home-row4-img3.webp';
+import partnerLogo3 from '../assets/Partners/home-row4-img4.webp';
 
 // Main component
 const Sec8 = () => {
@@ -24,7 +28,7 @@ const Sec8 = () => {
       {/* Spinning Mirrorcaps logo in top-left */}
       <div className="absolute top-10 left-[50%] z-2 overflow-hidden w-150 h-150 -translate-x-1/2 opacity-10">
         <motion.img
-          src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/market-transaction-animation.webp"
+          src={spinner}
           alt="Mirrorcaps Logo"
           className="w-full h-full"
           animate={logoAnimation}
@@ -47,9 +51,9 @@ const Sec8 = () => {
                 We're Regulated
               </h2>
               <p className="text-sm md:text-base text-gray-300">
-                Mirrorcaps operates in accordance with the financial
-                regulations and compliance standards outlined by the SLIBC (Reg.
-                No. 2023-00068) and FSCA (Reg. No. 47490).
+                Mirrorcaps operates in accordance with the financial regulations
+                and compliance standards outlined by the SLIBC (Reg. No.
+                2023-00068) and FSCA (Reg. No. 47490).
               </p>
             </div>
             <div className="text-center px-4">
@@ -73,21 +77,21 @@ const Sec8 = () => {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div className="h-8 w-24">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row4-img1.webp"
+                src={partnerLogo1}
                 alt="Trading Central"
                 className="h-full w-full object-contain"
               />
             </div>
             <div className="h-8 w-24">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row4-img3.webp"
+                src={partnerLogo2}
                 alt="oneZero"
                 className="h-full w-full object-contain"
               />
             </div>
             <div className="h-8 w-24">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row4-img4.webp"
+                src={partnerLogo3}
                 alt="ID3global"
                 className="h-full w-full object-contain"
               />
@@ -178,8 +182,8 @@ const Sec8 = () => {
             {/* Center description */}
             <div className="text-center px-2 py-6">
               <p className="text-gray-300 mb-8">
-                All Mirrorcaps clients are able to profit from the bullish
-                and bearish moves of 1000+ tradable instruments, such as Forex,
+                All Mirrorcaps clients are able to profit from the bullish and
+                bearish moves of 1000+ tradable instruments, such as Forex,
                 Share CFDs, Indices, Commodities and more.
               </p>
               <p className="text-base font-semibold text-brandblue">

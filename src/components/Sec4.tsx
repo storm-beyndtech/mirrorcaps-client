@@ -5,6 +5,12 @@ import { Button } from './ui/button';
 import { logoAnimation } from '@/lib/utils';
 import { AnimatedSection } from './ui/animated-section';
 import { Link } from 'react-router-dom';
+import spinner from '../assets/market-transaction-animation.webp';
+import stableTab1 from '../assets/Stable-tabs/home-row3-img1﹖v=4.webp';
+import stableTab2 from '../assets/Stable-tabs/home-row3-img2﹖v=4.webp';
+import stableTab3 from '../assets/Stable-tabs/home-row3-img3﹖v=4.webp';
+import stableTab4 from '../assets/Stable-tabs/home-row3-img4﹖v=4.webp';
+import stableTab5 from '../assets/Stable-tabs/home-row3-img5﹖v=4.webp';
 
 // Type definitions
 interface MarketItem {
@@ -261,8 +267,7 @@ const marketData: MarketDataType = {
 // Updated platform data with professional images
 const platformData: PlatformDataType = {
   'Metatrader 4': {
-    image:
-      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img1%EF%B9%96v=4.webp',
+    image: stableTab1,
     features: [
       'Powerful Charting and Automated Trading',
       'Servers in New York, London, and more!',
@@ -272,8 +277,7 @@ const platformData: PlatformDataType = {
     ],
   },
   'Metatrader 5': {
-    image:
-      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img2%EF%B9%96v=4.webp',
+    image: stableTab2,
     features: [
       'Pro Depth and Strategy Tester',
       'Integrated Economic Calendar',
@@ -283,8 +287,7 @@ const platformData: PlatformDataType = {
     ],
   },
   ProTrader: {
-    image:
-      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img3%EF%B9%96v=4.webp',
+    image: stableTab3,
     features: [
       'Institutional-Grade Analysis',
       'Advanced Orders & Algorithms',
@@ -294,8 +297,7 @@ const platformData: PlatformDataType = {
     ],
   },
   AppTrader: {
-    image:
-      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img4%EF%B9%96v=4.webp',
+    image: stableTab4,
     features: [
       'Mobile-First Trading Experience',
       'Biometric Security Features',
@@ -305,8 +307,7 @@ const platformData: PlatformDataType = {
     ],
   },
   'CopyTrader App': {
-    image:
-      'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row3-img5%EF%B9%96v=4.webp',
+    image: stableTab5,
     features: [
       'Follow Top Traders Globally',
       'Automated Position Copying',
@@ -614,7 +615,7 @@ const TabbedSections: React.FC = () => {
       {/* Spinning Mirrorcaps logo in top-left */}
       <div className="absolute top-180 left-0 z-2 overflow-hidden w-180 h-180 -translate-y-1/3 opacity-30">
         <motion.img
-          src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/market-transaction-animation.webp"
+          src={spinner}
           alt="Mirrorcaps Logo"
           className="w-full h-full"
           animate={logoAnimation}

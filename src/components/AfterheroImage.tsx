@@ -1,3 +1,5 @@
+import laptop from '../assets/home-row5-img1-2﹖v=4.webp';
+
 export default function AfterheroImage() {
   return (
     <div className="relative w-full bg-slate-950">
@@ -5,7 +7,7 @@ export default function AfterheroImage() {
       <div className="relative h-80 overflow-hidden max-w-2xl mx-auto">
         {/* Laptop Image */}
         <img
-          src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row5-img1-2%EF%B9%96v=4.webp"
+          src={laptop}
           alt="Laptop opened showing screen"
           className="w-full h-full object-cover object-top"
         />

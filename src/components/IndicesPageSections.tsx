@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import indicesBg from '../assets/indices/indices-banner-bg.webp';
 
 export const IndicesChart = () => {
   return (
@@ -44,7 +45,7 @@ export const IndicesChart = () => {
             <div className="w-2 h-2 bg-red-500 rounded-full mb-2"></div>
             <div className="text-xs text-red-400 font-medium whitespace-nowrap">
               <div className="text-red-300 text-[10px] mb-1">
-                Covid Pandemic Trigger & 
+                Covid Pandemic Trigger &
               </div>
               <div>Market Plumet</div>
             </div>
@@ -141,8 +142,7 @@ export const IndicesHeroSection: React.FC = () => {
     <section
       className="relative min-h-150 overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/indices-banner-bg.webp')",
+        backgroundImage: indicesBg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

@@ -2,13 +2,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import phoneBg from '../assets/phone-mockup-bg.png';
+import phoneScreen1 from '../assets/PhoneSlides/copytrader-row2-img01.webp';
+import phoneScreen2 from '../assets/PhoneSlides/copytrader-row2-img02.webp';
+import phoneScreen3 from '../assets/PhoneSlides/copytrader-row2-img03.webp';
+import phoneScreen4 from '../assets/PhoneSlides/copytrader-row2-img04.webp';
 
-const sliderImages = [
-  'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/copytrader-row2-img01.webp',
-  'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/copytrader-row2-img02.webp',
-  'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/copytrader-row2-img03.webp',
-  'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/copytrader-row2-img04.webp',
-];
+const sliderImages = [phoneScreen1, phoneScreen2, phoneScreen3, phoneScreen4];
 
 const Sec3 = () => {
   const settings = {

@@ -4,6 +4,8 @@ import { AnimatedSection } from './ui/animated-section';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import phoneSlide1 from '../assets/home-row9-phone1﹖v=6.webp';
+import phoneSlide2 from '../assets/home-row9-phone3﹖v=5.webp';
 
 // Animation variants matching the logoAnimation from utils
 const phoneAnimation = {
@@ -26,10 +28,7 @@ interface FeatureItem {
 }
 
 // Slider images from the reference component
-const sliderImages = [
-  'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row9-phone1%EF%B9%96v=6.webp',
-  'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/home-row9-phone3%EF%B9%96v=5.webp',
-];
+const sliderImages = [phoneSlide1, phoneSlide2];
 
 const Sec9 = () => {
   // Features list with icons

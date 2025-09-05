@@ -7,6 +7,7 @@ import Hero2 from '@/components/Hero2';
 import NavBar from '@/components/Navbar';
 import { PopularMarkets } from '@/components/PopularMarkets';
 import StepsSection from '@/components/StepsSection';
+import bondBg from '../../assets/bonds/bonds-banner-bg1.webp';
 
 export default function Bonds() {
   return (
@@ -15,7 +16,7 @@ export default function Bonds() {
       <Hero2
         title="Bonds"
         subtitle="Start trading futures of bond markets"
-        backgroundUrl="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/bonds-banner-bg1.webp"
+        backgroundUrl={bondBg}
       />
       <StartTradingSection />
       <PopularMarkets type="bonds" />

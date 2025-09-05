@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import how1 from '../assets/how-copy.jpg';
+import how2 from '../assets/how-share.jpg';
 
 interface FeatureCardProps {
   title: string;
@@ -195,7 +197,7 @@ export default function Sec6() {
             'Select the trading strategy you want to copy.',
             'Enjoy the success of the strategy you have copied.',
           ]}
-          image="https://protradercopy.com/local/templates/weltrade.main/components/wt/static.content/trader.copy.trading/wt/content.detail/default/img/how-copy.jpg"
+          image={how1}
           isImageRight={true}
         />
 
@@ -207,7 +209,7 @@ export default function Sec6() {
             'Select publish strategy and write a description.',
             'Profit whenever someone uses your strategy.',
           ]}
-          image="https://protradercopy.com/local/templates/weltrade.main/components/wt/static.content/trader.copy.trading/wt/content.detail/default/img/how-share.jpg"
+          image={how2}
         />
       </div>
     </section>

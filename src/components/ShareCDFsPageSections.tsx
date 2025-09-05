@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import ShareBg from '../assets/shareCdfs/stocks-hero-kv-retina.png';
 
 export const ShareCDFsChart = () => {
   return (
@@ -106,10 +107,10 @@ export const StartTradingSection: React.FC = () => {
           >
             Gain access to some of the largest companies in the world such as
             Apple, Deutsche Bank, Vodafone, Amazon, Google and more through
-            Mirrorcaps range of global Share CFDs. Now, you can take
-            advantage of the price movement of the underlying share price in any
-            market conditions by trading long or short, whether you trade
-            intra-day, swing trade, or position trade.
+            Mirrorcaps range of global Share CFDs. Now, you can take advantage
+            of the price movement of the underlying share price in any market
+            conditions by trading long or short, whether you trade intra-day,
+            swing trade, or position trade.
           </motion.p>
           <motion.p
             className="text-gray-500 mb-10 text-lg font-medium"
@@ -376,8 +377,7 @@ export const ShareCDFsHeroSection: React.FC = () => {
     <section
       className="relative min-h-150 overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url('https://xtb.scdn5.secure.raxcdn.com/header_classic_module/0103/55/752bbef4-342c-41e8-9d3d-b5610abe292a/crypto-hero-kv-retina.png')",
+        backgroundImage: ShareBg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
+import etfsBg from '../assets/etfs/etfs-banner-bg.webp';
 
 interface ETFData {
   symbol: string;
@@ -594,8 +595,7 @@ export const EtfsHeroSection: React.FC = () => {
     <section
       className="relative min-h-150 overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/etfs-banner-bg.webp')",
+        backgroundImage: etfsBg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

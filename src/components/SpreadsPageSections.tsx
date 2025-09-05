@@ -1,13 +1,13 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import spreadsBg from '../assets/spreads/spreads-and-commissions-banner-bg.webp';
 
 export const SpreadsHeroSection: React.FC = () => {
   return (
     <section
       className="relative min-h-150 overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/spreads-and-commissions-banner-bg.webp')",
+        backgroundImage: spreadsBg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

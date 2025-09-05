@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import fxBg from '../assets/forex/forex-banner-bg.webp';
 
 export const GBPUSDChart = () => {
   return (
@@ -151,8 +152,7 @@ export const ForexHeroSection: React.FC = () => {
     <section
       className="relative min-h-150 overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/forex-banner-bg.webp')",
+        backgroundImage: fxBg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

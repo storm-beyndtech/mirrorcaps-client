@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import commodityBg from '../assets/commodities/commodities-banner-bg.webp';
 
 export const CommoditiesChart = () => {
   return (
@@ -125,9 +126,9 @@ export const StartTradingSection: React.FC = () => {
             className="text-gray-500 mb-10 text-lg font-medium"
             variants={fadeInUp}
           >
-            When you trade commodities through Mirrorcaps, you gain access
-            to markets such as Oil, Gold, Gas, Coffee, Orange Juice and more,
-            via CFDs priced on physical assets! Start trading commodities today!
+            When you trade commodities through Mirrorcaps, you gain access to
+            markets such as Oil, Gold, Gas, Coffee, Orange Juice and more, via
+            CFDs priced on physical assets! Start trading commodities today!
           </motion.p>
           <motion.button
             className="bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-lg font-semibold transition-all text-lg shadow-lg hover:shadow-xl"
@@ -148,8 +149,7 @@ export const CommoditiesHeroSection: React.FC = () => {
     <section
       className="relative min-h-150 overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage:
-          "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/forex-banner-bg.webp')",
+        backgroundImage: commodityBg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

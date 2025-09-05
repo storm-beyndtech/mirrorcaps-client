@@ -3,6 +3,17 @@ import { motion } from 'framer-motion';
 import { Award, TrendingUp, BarChart2 } from 'lucide-react';
 import { AnimatedSection } from './ui/animated-section';
 import { Link } from 'react-router-dom';
+import partnerLogo1 from '../assets/Partners/home-row4-img1.webp';
+import partnerLogo2 from '../assets/Partners/home-row4-img3.webp';
+import partnerLogo3 from '../assets/Partners/home-row4-img4.webp';
+import award1 from '../assets/Awards/about-us-award-row1-img1.webp';
+import award2 from '../assets/Awards/about-us-award-row1-img2.webp';
+import award3 from '../assets/Awards/about-us-award-row1-img3.webp';
+import award4 from '../assets/Awards/about-us-award-row1-img4.webp';
+import award5 from '../assets/Awards/about-us-award-row1-img5.webp';
+import award6 from '../assets/Awards/about-us-award-row1-img6.webp';
+import award7 from '../assets/Awards/about-us-award-row1-img7.webp';
+import award8 from '../assets/Awards/about-us-award-row1-img8.webp';
 
 // Logos for review sites
 const reviewSites = [
@@ -15,49 +26,49 @@ const reviewSites = [
 
 // Featured logos (8 empty placeholders)
 const featuredLogos = [
-  { name: 'Featured Logo 1', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-myfxbook.svg' },
-  { name: 'Featured Logo 2', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-benzinga.svg' },
-  { name: 'Featured Logo 3', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-business-insider.svg' },
-  { name: 'Featured Logo 4', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-bloomberg.svg' },
-  { name: 'Featured Logo 5', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-fxstreet.svg' },
-  { name: 'Featured Logo 6', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-forexfactory.svg' },
-  { name: 'Featured Logo 7', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-marketwatch.svg' },
-  { name: 'Featured Logo 8', src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-yahoo.svg' },
+  { name: 'Featured Logo 1', src: partnerLogo1 },
+  { name: 'Featured Logo 2', src: partnerLogo2 },
+  { name: 'Featured Logo 3', src: partnerLogo3 },
+  { name: 'Featured Logo 4', src: partnerLogo1 },
+  { name: 'Featured Logo 5', src: partnerLogo2 },
+  { name: 'Featured Logo 6', src: partnerLogo3 },
+  { name: 'Featured Logo 7', src: partnerLogo1 },
+  { name: 'Featured Logo 8', src: partnerLogo2 },
 ];
 
 // Awards data
 const awards = [
   {
     name: 'Award 1',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img1.webp',
+    src: award1,
   },
   {
     name: 'Award 2',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img2.webp',
+    src: award2,
   },
   {
     name: 'Award 3',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img3.webp',
+    src: award3,
   },
   {
     name: 'Award 4',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img4.webp',
+    src: award4,
   },
   {
     name: 'Award 5',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img5.webp',
+    src: award5,
   },
   {
     name: 'Award 6',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img6.webp',
+    src: award6,
   },
   {
     name: 'Award 7',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img7.webp',
+    src: award7,
   },
   {
     name: 'Award 8',
-    src: 'https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/about-us-award-row1-img8.webp',
+    src: award8,
   },
 ];
 

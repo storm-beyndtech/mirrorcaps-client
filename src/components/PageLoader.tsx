@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { logoAnimation2 } from '@/lib/utils';
+import map from '../assets/moneta-loading-map.webp';
+import spinner from '../assets/market-transaction-animation.webp';
 
 const PageLoader: React.FC = () => {
   return (
@@ -12,7 +14,7 @@ const PageLoader: React.FC = () => {
         >
           <img
             loading="lazy"
-            src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/moneta-logo-icon.png"
+            src={spinner}
             width={120}
             height={120}
             style={{ transform: 'scale(1.15)' }}
@@ -32,7 +34,7 @@ const PageLoader: React.FC = () => {
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-auto">
         <img
           loading="lazy"
-          src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/moneta-loading-map.webp"
+          src={map}
           alt="Mirrorcaps logo icon"
           width={1920}
           height={736}
