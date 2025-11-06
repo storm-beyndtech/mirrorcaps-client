@@ -146,8 +146,7 @@ export default function ManageTrades() {
                             : 'text-red-600 dark:text-red-400'
                         }`}
                       >
-                        {Number(trade.tradeData.interest) >= 0 ? '+' : ''}
-                        {trade.tradeData.interest}
+                        +{Number(trade.tradeData.interest) * 100}%
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">

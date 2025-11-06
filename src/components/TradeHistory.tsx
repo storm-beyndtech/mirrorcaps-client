@@ -173,18 +173,20 @@ const TradeHistory = () => {
                         </span>
                         <span
                           className={`ml-2 flex items-center text-xs font-medium ${
-                            trade.tradeData.interest >= 0
+                            Number(trade.tradeData.interest) * 100 >= 0
                               ? 'text-green-500 dark:text-green-400'
                               : 'text-red-500 dark:text-red-400'
                           }`}
                         >
-                          {trade.tradeData.interest >= 0 ? (
+                          {Number(trade.tradeData.interest) * 100 >= 0 ? (
                             <TrendingUp className="h-3 w-3 mr-0.5" />
                           ) : (
                             <TrendingDown className="h-3 w-3 mr-0.5" />
                           )}
-                          {trade.tradeData.interest >= 0 ? '+' : ''}
-                          {trade.tradeData.interest}%
+                          {Number(trade.tradeData.interest) * 100 >= 0
+                            ? '+'
+                            : ''}
+                          {Number(trade.tradeData.interest) * 100}%
                         </span>
                       </div>
                       <div className="mt-1">

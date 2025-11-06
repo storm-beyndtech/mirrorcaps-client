@@ -4,6 +4,8 @@ import { Eye, EyeOff } from 'lucide-react';
 import Alert from '@/components/ui/Alert';
 import { bounceAnimation, logoAnimation } from '@/lib/utils';
 import logo from '../../assets/logo.png';
+import spinner from '../../assets/market-transaction-animation.webp';
+import bg from '../../assets/startingright.png';
 import { Link, useNavigate } from 'react-router-dom';
 import DarkModeSwitcher from '@/components/Layouts/DarkModeSwitcher';
 import GTranslateProvider from '@/components/ui/GTranslateProvider';
@@ -157,8 +159,8 @@ const Login: React.FC = () => {
         {/* Spinning Mirrorcaps logo in top-left */}
         <div className="absolute top-[650px] -left-20 overflow-hidden w-[560px] h-[560px] -translate-x-1/2 -translate-y-1/2 opacity-60">
           <motion.img
-            src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/market-transaction-animation.webp"
-            alt="Mirrorcaps Logo"
+            src={spinner}
+            alt="spinner"
             className="w-full h-full"
             animate={logoAnimation}
           />
@@ -176,11 +178,7 @@ const Login: React.FC = () => {
           </p>
 
           <motion.div className="flex" animate={bounceAnimation}>
-            <img
-              src="https://protradercopy.com/static/images/about/startingright.png"
-              alt="Login"
-              className="w-[80%]"
-            />
+            <img src={bg} alt="Login" className="w-[80%]" />
           </motion.div>
         </div>
       </div>

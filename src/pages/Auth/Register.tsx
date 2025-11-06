@@ -9,6 +9,8 @@ import DarkModeSwitcher from '@/components/Layouts/DarkModeSwitcher';
 import GTranslateProvider from '@/components/ui/GTranslateProvider';
 import { GoogleLogin } from '@react-oauth/google';
 import { contextData } from '@/context/AuthContext';
+import spinner from '../../assets/market-transaction-animation.webp';
+import bg from '../../assets/startingright.png';
 
 // Placeholder types for form state and errors
 interface RegistrationFormState {
@@ -111,7 +113,7 @@ const Register: React.FC = () => {
           state: { ...bodyData, pageType: 'register-verification' },
         });
       }, 2000);
-    } catch (error:any) {
+    } catch (error: any) {
       // Handle registration error
       setError(error.message);
       setSubmitStatus('error');
@@ -174,8 +176,8 @@ const Register: React.FC = () => {
         {/* Spinning Mirrorcaps logo in top-left */}
         <div className="absolute top-[650px] -left-20 overflow-hidden w-[560px] h-[560px] -translate-x-1/2 -translate-y-1/2 opacity-60">
           <motion.img
-            src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/market-transaction-animation.webp"
-            alt="Mirrorcaps Logo"
+            src={spinner}
+            alt="spinner"
             className="w-full h-full"
             animate={logoAnimation}
           />
@@ -193,11 +195,7 @@ const Register: React.FC = () => {
           </p>
 
           <motion.div className="flex" animate={bounceAnimation}>
-            <img
-              src="https://protradercopy.com/static/images/about/startingright.png"
-              alt="Login"
-              className="w-[80%]"
-            />
+            <img src={bg} alt="Login" className="w-[80%]" />
           </motion.div>
         </div>
       </div>
