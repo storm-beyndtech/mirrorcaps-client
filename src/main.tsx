@@ -9,7 +9,7 @@ import ScrollToTop from './components/ScrollToTop.tsx';
 
 const originalFetch = window.fetch.bind(window);
 
-window.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
+window.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
   const token = localStorage.getItem('authToken');
   const headers = new Headers(init?.headers || {});
 
@@ -18,7 +18,7 @@ window.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
   }
 
   return originalFetch(input, { ...init, headers });
-};
+}) as typeof fetch;
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
