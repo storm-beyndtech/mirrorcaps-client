@@ -94,10 +94,10 @@ const Login: React.FC = () => {
 
       // Handle successful login
       setSubmitStatus('success');
-      login(resData.user);
+      login(resData.user, resData.token);
       // Redirect or handle successful login
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate(resData.user?.isAdmin ? '/admin' : '/dashboard');
       }, 2000);
     } catch (error: any) {
       // Handle login error
@@ -143,8 +143,8 @@ const Login: React.FC = () => {
 
     const data = await res.json();
     if (res.ok) {
-      login(data.user);
-      navigate('/dashboard');
+      login(data.user, data.token);
+      navigate(data.user?.isAdmin ? '/admin' : '/dashboard');
     } else {
       setError(data.error);
     }

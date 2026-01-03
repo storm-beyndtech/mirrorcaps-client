@@ -160,8 +160,8 @@ const Register: React.FC = () => {
 
     const data = await res.json();
     if (res.ok) {
-      login(data.user);
-      navigate('/dashboard');
+      login(data.user, data.token);
+      navigate(data.user?.isAdmin ? '/admin' : '/dashboard');
     } else {
       setSubmitStatus('error');
     }

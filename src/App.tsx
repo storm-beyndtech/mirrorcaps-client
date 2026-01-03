@@ -59,6 +59,7 @@ import ApprovedWithdrawals from './pages/Admin/ApprovedWithdrawals';
 import RejectedDeposits from './pages/Admin/RejectedDeposits';
 import PendingDeposits from './pages/Admin/PendingDeposits';
 import ApprovedDeposits from './pages/Admin/ApprovedDeposits';
+import ActivityLogs from './pages/Admin/ActivityLogs';
 import BannedUsers from './pages/Admin/BannedUsers';
 import ManageTrades from './pages/Admin/ManageTrades';
 import ManageTrader from './pages/Admin/ManageTrader';
@@ -149,6 +150,7 @@ function App() {
   };
 
   useEffect(() => {
+    if (!user) return;
     fetchTraders();
   }, [user]);
 
@@ -292,6 +294,10 @@ function App() {
                     <Route
                       path="/admin/approved-withdrawals"
                       element={<ApprovedWithdrawals />}
+                    />
+                    <Route
+                      path="/admin/activity-logs"
+                      element={<ActivityLogs />}
                     />
                     <Route
                       path="/admin/pending-withdrawals"

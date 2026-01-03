@@ -299,18 +299,19 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
 
       // Handle successful verification
       setSubmitStatus('success');
-      login(data.user);
+      login(data.user, data.token);
+      const destination = data.user?.isAdmin ? '/admin' : '/dashboard';
 
       // Redirect to appropriate page
       setTimeout(() => {
         if (pageType === 'register-verification') {
-          navigate('/dashboard');
+          navigate(destination);
         }
         if (pageType === 'login-verification') {
-          navigate('/dashboard');
+          navigate(destination);
         }
         if (pageType === 'reset-password') {
-          navigate('/dashboard');
+          navigate(destination);
         }
       }, 2000);
     } catch (error: any) {
