@@ -8,6 +8,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 import { contextData } from '@/context/AuthContext';
+import { apiGet } from '@/utils/api';
 
 // TypeScript interfaces
 interface Trade {
@@ -29,7 +30,7 @@ const TradeHistory = () => {
   const fetchTrades = async () => {
     setLoading(true);
     try {
-      const res = await fetch(
+      const res = await apiGet(
         `${url}/trades/user/${user._id}/trader/${user.traderId}`,
       );
       const data = await res.json();

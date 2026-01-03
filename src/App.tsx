@@ -2,7 +2,7 @@ import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 
 //importing pages
 import Home from './pages/Home';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import PageLoader from './components/PageLoader';
 import { contextData } from './context/AuthContext';
 import Register from './pages/Auth/Register';
@@ -78,6 +78,7 @@ import WhyChooseUs from './pages/company/WhyChooseUs';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import AMLPolicy from './pages/AMLPolicy';
+import { apiGet, apiPut } from './utils/api';
 
 function App() {
   const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
@@ -88,8 +89,8 @@ function App() {
     location.pathname.includes('/admin') ||
     location.pathname.includes('/login') ||
     location.pathname.includes('/register') ||
-    location.pathname.includes('/account-setup');
-    location.pathname.includes('/password-reset');
+    location.pathname.includes('/account-setup') ||
+    location.pathname.includes('/verify-otp');
   const { fetching, user, fetchUser } = contextData();
   const [assetsLoaded, setAssetsLoaded] = useState(false);
   const [traders, setTraders] = useState([]);
@@ -104,7 +105,7 @@ function App() {
 
   const fetchTraders = async () => {
     try {
-      const res = await fetch(`${url}/trader`);
+      const res = await apiGet(`${url}/trader`, false);
       if (!res.ok) throw new Error('Failed to fetch traders');
       const data = await res.json();
       setTraders(data || []);
@@ -125,17 +126,14 @@ function App() {
         return false;
       }
 
-      const response = await fetch(`${url}/users/update-user-trader`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const response = await apiPut(
+        `${url}/users/update-user-trader`,
+        {
           traderId: trader._id,
           action,
           userId: user._id,
-        }),
-      });
+        },
+      );
 
       if (response.ok) {
         setCopiedTraderId(action === 'copy' ? trader._id : null);
@@ -181,7 +179,7 @@ function App() {
           {isPrivateRoute ? (
             <meta
               name="viewport"
-              content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+              content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
             />
           ) : (
             <meta name="viewport" content="width=1280, user-scalable=yes" />

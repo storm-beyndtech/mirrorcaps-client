@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { contextData } from '@/context/AuthContext';
 import { Link } from 'react-router-dom';
+import { apiGet } from '@/utils/api';
 
 // TypeScript interfaces
 interface Trade {
@@ -31,7 +32,7 @@ const RecentTrades = () => {
   const fetchTrades = async () => {
     setLoading(true);
     try {
-      const res = await fetch(
+      const res = await apiGet(
         `${url}/trades/user/${user._id}/trader/${user.traderId}`,
       );
       const data = await res.json();

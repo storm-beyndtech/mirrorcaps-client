@@ -9,7 +9,7 @@ const NewsSection = () => {
         className="relative min-h-180 overflow-hidden flex items-center justify-center"
         style={{
           backgroundImage:
-            "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/economic-calendar-banner-img.webp')",
+            "url('https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -67,7 +67,7 @@ const NewsSection = () => {
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             <div className="relative">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-ideas-row2-img1.webp"
+                src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                 alt="Economic Calendar Dashboard"
                 className="w-full h-auto rounded-lg border border-slate-700/50 relative z-10"
               />
@@ -82,7 +82,7 @@ const NewsSection = () => {
             <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-emerald-500/20 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             <div className="relative">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-ideas-row2-img2.webp"
+                src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                 alt="Local Time News Dashboard"
                 className="w-full h-auto rounded-lg border border-slate-700/50 relative z-10"
               />
@@ -121,7 +121,7 @@ const NewsSection = () => {
             <div className="absolute -inset-2 bg-gradient-to-r from-violet-500/20 via-pink-500/20 to-violet-500/20 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             <div className="relative">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-ideas-row2-img3.webp"
+                src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                 alt="News Feed Customization"
                 className="w-full h-auto rounded-lg border border-slate-700/50 relative z-10"
               />
@@ -136,7 +136,7 @@ const NewsSection = () => {
             <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-emerald-500/20 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             <div className="relative">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/featured-ideas-row2-img4.webp"
+                src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                 alt="Local Time News Dashboard"
                 className="w-full h-auto rounded-lg border border-slate-700/50 relative z-10"
               />
@@ -171,7 +171,7 @@ const NewsSection = () => {
             <div className="relative bg-slate-900/50 rounded-lg overflow-hidden border border-slate-700/50">
               <div className="relative h-64 p-10">
                 <img
-                  src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/trade-tools-row3-img1.webp"
+                  src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                   alt="Market Buzz Tool"
                   className="w-full h-full object-cover"
                 />
@@ -199,7 +199,7 @@ const NewsSection = () => {
             <div className="relative bg-slate-900/50 rounded-lg overflow-hidden border border-slate-700/50">
               <div className="relative h-64 p-10">
                 <img
-                  src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/trade-tools-row3-img3.webp"
+                  src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                   alt="Featured Ideas Tool"
                   className="w-full h-full object-cover"
                 />
@@ -227,7 +227,7 @@ const NewsSection = () => {
             <div className="relative bg-slate-900/50 rounded-lg overflow-hidden border border-slate-700/50">
               <div className="relative h-64 p-10">
                 <img
-                  src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/trade-tools-row3-img3.webp"
+                  src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                   alt="Featured Ideas Tool"
                   className="w-full h-full object-cover"
                 />

@@ -10,7 +10,7 @@ const TradeVpsSections = () => {
         className="relative min-h-180 overflow-hidden flex items-center justify-center"
         style={{
           backgroundImage:
-            "url('https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/forex-vps-banner-bg.webp')",
+            "url('https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -98,7 +98,7 @@ const TradeVpsSections = () => {
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             <div className="relative max-w-100">
               <img
-                src="https://protradercopy.com/wp-content/themes/ProTrader-Copy/images/forex-vps-row1-img%EF%B9%96v=4.webp"
+                src="https://res.cloudinary.com/ddb1vjioq/image/upload/v1747727915/Adobe_Express_-_file_6_aore83.png"
                 alt="Economic Calendar Dashboard"
                 className="w-full h-auto rounded-lg border border-slate-700/50 relative z-10"
               />

@@ -1,6 +1,7 @@
 import { contextData } from '@/context/AuthContext';
 import { RefreshCw, Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
+import { apiPut } from '@/utils/api';
 
 const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
 
@@ -85,17 +86,14 @@ export default function ChangePassword() {
     setServerError('');
 
     try {
-      const response = await fetch(`${url}/change-password`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const response = await apiPut(
+        `${url}/change-password`,
+        {
           currentPassword: formData.currentPassword,
           newPassword: formData.newPassword,
           id: user._id,
-        }),
-      });
+        },
+      );
 
       const result = await response.json();
 

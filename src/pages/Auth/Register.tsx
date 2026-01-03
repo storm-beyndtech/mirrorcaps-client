@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
 import Alert from '@/components/ui/Alert';
@@ -11,6 +11,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { contextData } from '@/context/AuthContext';
 import spinner from '../../assets/market-transaction-animation.webp';
 import bg from '../../assets/startingright.png';
+import { apiPost } from '@/utils/api';
 
 // Placeholder types for form state and errors
 interface RegistrationFormState {
@@ -47,6 +48,12 @@ const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
   const navigate = useNavigate();
+  const googleReady = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    const host = window.location.hostname;
+    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    return !!clientId && host !== 'localhost';
+  }, []);
 
   // Validation function placeholder
   const validateForm = (): boolean => {
@@ -91,13 +98,7 @@ const Register: React.FC = () => {
     };
     try {
       // Placeholder for actual API call
-      const response = await fetch(`${url}/users/signup`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(bodyData),
-      });
+      const response = await apiPost(`${url}/users/signup`, bodyData, false);
 
       const resData = await response.json();
 
@@ -152,11 +153,11 @@ const Register: React.FC = () => {
 
   //Google login success
   const onSuccessHandler = async ({ credential }: any) => {
-    const res = await fetch(`${url}/users/google`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token: credential }),
-    });
+    const res = await apiPost(
+      `${url}/users/google`,
+      { token: credential },
+      false,
+    );
 
     const data = await res.json();
     if (res.ok) {
@@ -218,12 +219,19 @@ const Register: React.FC = () => {
             Join the community and unleash endless possibilities
           </p>
 
-          <GoogleLogin
-            onSuccess={onSuccessHandler}
-            onError={() => {
-              setSubmitStatus('error');
-            }}
-          />
+          {googleReady ? (
+            <GoogleLogin
+              onSuccess={onSuccessHandler}
+              onError={() => {
+                setSubmitStatus('error');
+              }}
+            />
+          ) : (
+            <div className="w-full rounded-md border border-dashed border-gray-300 dark:border-gray-700 px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+              Google signup is unavailable on this host. Use email/password
+              instead.
+            </div>
+          )}
 
           <div className="flex items-center my-5">
             <hr className="flex-grow border-t border-gray-300 dark:border-gray-700" />

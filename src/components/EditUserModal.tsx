@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { contextData } from '@/context/AuthContext';
 import Alert from './ui/Alert';
+import { apiPut } from '@/utils/api';
 
 const rankOptions = [
   'welcome',
@@ -85,11 +86,7 @@ export default function EditUserModal({ userData, handleUserData }: any) {
 
     try {
       setLoading(true);
-      const res = await fetch(`${url}/users/update-profile`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(profileData),
-      });
+      const res = await apiPut(`${url}/users/update-profile`, profileData);
       const data = await res.json();
 
       if (res.ok) setSuccess(data.message || 'User update successful');

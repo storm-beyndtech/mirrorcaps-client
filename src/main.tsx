@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import ScrollToTop from './components/ScrollToTop.tsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const originalFetch = window.fetch.bind(window);
 
@@ -24,10 +25,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
       <Router>
-        <AuthProvider>
-          <ScrollToTop />
-          <App />
-        </AuthProvider>
+        <HelmetProvider>
+          <AuthProvider>
+            <ScrollToTop />
+            <App />
+          </AuthProvider>
+        </HelmetProvider>
       </Router>
     </GoogleOAuthProvider>
   </React.StrictMode>,

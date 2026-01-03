@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { apiGet } from '@/utils/api';
 
 const AuthContext = createContext<any>(null);
 
@@ -40,12 +41,7 @@ export const AuthProvider = ({ children }: any) => {
     const timeoutId = setTimeout(() => controller.abort(), 20000);
 
     try {
-      const res = await fetch(`${url}/users/${userId}`, {
-        signal: controller.signal,
-        headers: {
-          Authorization: `Bearer ${activeToken}`,
-        },
-      });
+      const res = await apiGet(`${url}/users/${userId}`);
       const data = await res.json();
 
       if (res.ok) {

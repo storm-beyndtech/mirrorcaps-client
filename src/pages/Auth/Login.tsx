@@ -11,6 +11,8 @@ import DarkModeSwitcher from '@/components/Layouts/DarkModeSwitcher';
 import GTranslateProvider from '@/components/ui/GTranslateProvider';
 import { GoogleLogin } from '@react-oauth/google';
 import { contextData } from '@/context/AuthContext';
+import { apiPost } from '@/utils/api';
+import { useMemo } from 'react';
 
 // Placeholder types for form state and errors
 interface LoginFormState {
@@ -41,6 +43,12 @@ const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
   const navigate = useNavigate();
+  const googleReady = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    const host = window.location.hostname;
+    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    return !!clientId && host !== 'localhost';
+  }, []);
 
   function isEmail(input: string) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -78,13 +86,7 @@ const Login: React.FC = () => {
     };
     try {
       // Placeholder for actual API call
-      const response = await fetch(`${url}/users/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await apiPost(`${url}/users/login`, payload, false);
 
       const resData = await response.json();
 
@@ -135,11 +137,11 @@ const Login: React.FC = () => {
 
   //Google login success
   const onSuccessHandler = async ({ credential }: any) => {
-    const res = await fetch(`${url}/users/google`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token: credential }),
-    });
+    const res = await apiPost(
+      `${url}/users/google`,
+      { token: credential },
+      false,
+    );
 
     const data = await res.json();
     if (res.ok) {
@@ -173,8 +175,7 @@ const Login: React.FC = () => {
           </Link>
 
           <p className="text-gray-300 text-sm mt-5 leading-6 max-w-60">
-            Welcome back to Interactive Mirrorcaps. Login and embrace endless
-            possibilities
+            Welcome back to Mirrorcaps. Login and embrace endless possibilities
           </p>
 
           <motion.div className="flex" animate={bounceAnimation}>
@@ -201,12 +202,19 @@ const Login: React.FC = () => {
             Access your Mirrorcaps account
           </p>
 
-          <GoogleLogin
-            onSuccess={onSuccessHandler}
-            onError={() => {
-              setError('Google login failed');
-            }}
-          />
+          {googleReady ? (
+            <GoogleLogin
+              onSuccess={onSuccessHandler}
+              onError={() => {
+                setError('Google login failed');
+              }}
+            />
+          ) : (
+            <div className="w-full rounded-md border border-dashed border-gray-300 dark:border-gray-700 px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+              Google login is unavailable on this host. Use email/password
+              instead.
+            </div>
+          )}
 
           <div className="flex items-center my-5">
             <hr className="flex-grow border-t border-gray-300 dark:border-gray-700" />

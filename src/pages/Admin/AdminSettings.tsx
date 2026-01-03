@@ -1,5 +1,6 @@
 import Alert from '@/components/ui/Alert';
 import { useEffect, useState } from 'react';
+import { apiGet, apiPut } from '@/utils/api';
 
 export default function AdminSettings() {
   const [coins, setCoins] = useState([
@@ -13,7 +14,7 @@ export default function AdminSettings() {
 
   const fetchUtils = async () => {
     try {
-      const res = await fetch(`${url}/utils`);
+      const res = await apiGet(`${url}/utils`);
       const data = await res.json();
 
       if (res.ok) {
@@ -39,11 +40,7 @@ export default function AdminSettings() {
 
     try {
       setLoading(true);
-      const res = await fetch(`${url}/utils/update/${utilId}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ coins }),
-      });
+      const res = await apiPut(`${url}/utils/update/${utilId}`, { coins });
       const data = await res.json();
 
       if (res.ok) setSuccess(true);

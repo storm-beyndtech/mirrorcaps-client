@@ -2,6 +2,7 @@ import { contextData } from '@/context/AuthContext';
 import { useEffect, useState } from 'react';
 import PageLoader from '@/components/PageLoader';
 import Alert from '@/components/ui/Alert';
+import { apiGet, apiPost } from '@/utils/api';
 
 interface Coin {
   name: string;
@@ -32,7 +33,7 @@ export default function Withdraw() {
   const fetchCoins = async () => {
     setFetching(true);
     try {
-      const res = await fetch(`${url}/utils`);
+      const res = await apiGet(`${url}/utils`);
       const data = await res.json();
 
       if (res.ok) {
@@ -84,17 +85,13 @@ export default function Withdraw() {
     setSuccess(false);
 
     try {
-      const res = await fetch(`${url}/withdrawals`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: user._id,
-          amount,
-          convertedAmount,
-          coinName: coin?.name,
-          address,
-          network,
-        }),
+      const res = await apiPost(`${url}/withdrawals`, {
+        id: user._id,
+        amount,
+        convertedAmount,
+        coinName: coin?.name,
+        address,
+        network,
       });
 
       const data = await res.json();

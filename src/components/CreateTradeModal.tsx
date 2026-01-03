@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Alert from './ui/Alert';
+import { apiPost } from '@/utils/api';
 
 export default function CreateTradeModal({ toggleModal }: any) {
   const [symbol, setSymbol] = useState('');
@@ -33,15 +34,14 @@ export default function CreateTradeModal({ toggleModal }: any) {
     setSuccess(false);
 
     try {
-      const res = await fetch(`${url}/trades`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const res = await apiPost(
+        `${url}/trades`,
+        {
           symbol,
           category,
           interest: Number(interest / 100),
-        }),
-      });
+        },
+      );
       const data = await res.json();
 
       if (res.ok) setSuccess(data.message);

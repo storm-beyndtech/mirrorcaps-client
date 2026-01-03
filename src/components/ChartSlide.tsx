@@ -57,9 +57,12 @@ function ChartSlide() {
       "displayMode": "adaptive",
       "locale": "en"
     }`;
-  
+
     if (container.current) {
       container.current.innerHTML = "";
+      const widget = document.createElement("div");
+      widget.className = "tradingview-widget-container__widget";
+      container.current.appendChild(widget);
       container.current.appendChild(script);
     }
   }, []);  

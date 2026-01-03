@@ -4,6 +4,7 @@ import { FaChartSimple } from 'react-icons/fa6';
 import { GiWallet } from 'react-icons/gi';
 import { PiChartDonutFill } from 'react-icons/pi';
 import { RiWalletFill } from 'react-icons/ri';
+import { apiGet } from '@/utils/api';
 
 export default function MiniBals() {
   const [trades, setTrades] = useState([]);
@@ -14,7 +15,7 @@ export default function MiniBals() {
   // Function to fetch trades
   const fetchTrades = async () => {
     try {
-      const res = await fetch(`${url}/trades`);
+      const res = await apiGet(`${url}/trades`);
       const data = await res.json();
 
       if (res.ok) {

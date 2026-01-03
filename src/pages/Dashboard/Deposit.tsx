@@ -4,6 +4,7 @@ import PageLoader from '@/components/PageLoader';
 import { GoInfo } from 'react-icons/go';
 import Alert from '@/components/ui/Alert';
 import { Copy } from 'lucide-react';
+import { apiGet, apiPost } from '@/utils/api';
 
 interface Coin {
   name: string;
@@ -28,7 +29,7 @@ export default function Deposit() {
   const fetchCoins = async () => {
     setFetching(true);
     try {
-      const res = await fetch(`${url}/utils`);
+      const res = await apiGet(`${url}/utils`);
       const data = await res.json();
 
       if (res.ok) {
@@ -55,15 +56,11 @@ export default function Deposit() {
     setSuccess(false);
 
     try {
-      const res = await fetch(`${url}/deposits`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: user._id,
-          amount,
-          convertedAmount,
-          coinName: coin?.name,
-        }),
+      const res = await apiPost(`${url}/deposits`, {
+        id: user._id,
+        amount,
+        convertedAmount,
+        coinName: coin?.name,
       });
 
       const data = await res.json();

@@ -1,6 +1,7 @@
 import ManageDepositModal from '@/components/ManageDepositModal';
 import { useEffect, useState } from 'react';
 import { Search, CheckCircle, RefreshCw, Wallet } from 'lucide-react';
+import { apiGet } from '@/utils/api';
 
 export default function ApprovedDeposits() {
   const [deposits, setDeposits] = useState<ITransaction[]>([]);
@@ -25,7 +26,7 @@ export default function ApprovedDeposits() {
   const fetchDeposits = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`${url}/deposits`);
+      const res = await apiGet(`${url}/deposits`);
       const data = await res.json();
 
       if (res.ok) {

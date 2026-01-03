@@ -3,6 +3,7 @@ import PageLoader from '@/components/PageLoader';
 import { contextData } from '@/context/AuthContext';
 import { useEffect, useState } from 'react';
 import { Search, Users, RefreshCw } from 'lucide-react';
+import { apiGet } from '@/utils/api';
 
 export default function ActiveUsers() {
   const { user: admin } = contextData();
@@ -18,7 +19,7 @@ export default function ActiveUsers() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch(`${url}/users`);
+      const res = await apiGet(`${url}/users`);
       const data = await res.json();
 
       if (res.ok) {
