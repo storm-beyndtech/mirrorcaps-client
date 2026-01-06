@@ -34,7 +34,7 @@ const AccountSetupOnboarding = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  const { login, user } = contextData();
+  const { login, user, logout } = contextData();
   const url = import.meta.env.VITE_REACT_APP_SERVER_URL;
 
   // Form data for all sections
@@ -373,10 +373,10 @@ const AccountSetupOnboarding = () => {
       console.log(formData);
 
       // Submit to API
-      const response = await apiPut(
-        `${url}/users/update-profile`,
-        { ...formData, email: user.email },
-      );
+      const response = await apiPut(`${url}/users/update-profile`, {
+        ...formData,
+        email: user.email,
+      });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -399,6 +399,11 @@ const AccountSetupOnboarding = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   };
 
   const renderProgressBar = () => {
@@ -607,7 +612,10 @@ const AccountSetupOnboarding = () => {
             </div>
           </div>
           <GTranslateProvider />
-          <button className="text-white bg-transparent px-2 py-1.5 border border-gray-700 rounded">
+          <button
+            onClick={() => handleLogout()}
+            className="text-white bg-transparent px-2 py-1.5 border border-gray-700 rounded"
+          >
             Logout
           </button>
         </div>
